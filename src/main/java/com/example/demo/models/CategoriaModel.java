@@ -18,7 +18,7 @@ public class CategoriaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
     private byte id;
-
+    @Column(nullable = false)
     private String nombre;
 
     @OneToMany(mappedBy = "categoriaModel") 

@@ -8,6 +8,7 @@ import com.example.demo.services.ProductosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +28,9 @@ public class ProductosController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "/post/productos")
-    public ProductosModel postProducto(@RequestBody ProductosModel productosModel){
-        return productosService.postProducto(productosModel);
+    @PostMapping(path = "/post/productos/{idCategoria}")
+    public ProductosModel postProducto(@RequestBody ProductosModel productosModel, @PathVariable Byte idCategoria){
+        return productosService.postProducto(productosModel, idCategoria);
     }
 
 }

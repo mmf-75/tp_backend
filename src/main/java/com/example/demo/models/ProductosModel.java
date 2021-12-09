@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -39,6 +40,11 @@ public class ProductosModel {
     @ManyToOne()
     @JoinColumn(name = "id_categoria", nullable = false)
     private CategoriaModel categoriaModel;
+
+    public ProductosModel() {
+        List<VentasModel> ventas = new ArrayList<VentasModel>();
+        this.ventas = ventas;
+    }
 
     public Long getId() {
         return id;
