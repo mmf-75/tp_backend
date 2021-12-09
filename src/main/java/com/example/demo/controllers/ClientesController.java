@@ -2,8 +2,8 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 
-import com.example.demo.models.ProductosModel;
-import com.example.demo.services.ProductosService;
+import com.example.demo.models.ClientesModel;
+import com.example.demo.services.ClientesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api")
-public class ProductosController {
+public class ClientesController {
     
     @Autowired
-    ProductosService productosService;
+    ClientesService clientesService;
 
     @CrossOrigin
-    @GetMapping(path = "/get/productos")
-    public ArrayList<ProductosModel> getProductos(){
-        return productosService.getProductos();
+    @GetMapping(path = "get/clientes")
+    public ArrayList<ClientesModel> getClientes(){
+        return clientesService.getClientes();
     }
 
     @CrossOrigin
-    @PostMapping(path = "/post/productos")
-    public ProductosModel postProducto(@RequestBody ProductosModel productosModel){
-        return productosService.postProducto(productosModel);
+    @PostMapping(path = "post/cliente")
+    public ClientesModel postCliente(@RequestBody ClientesModel clientesModel){
+        return clientesService.postCliente(clientesModel);
     }
 
 }

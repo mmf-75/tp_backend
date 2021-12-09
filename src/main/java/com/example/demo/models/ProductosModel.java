@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "productos")
 public class ProductosModel {
@@ -28,13 +30,12 @@ public class ProductosModel {
     private String descripcion;
     @Column(name = "foto_producto")
     private String fotoProducto;
-    @Column(name = "id_subtipo")
-    private Long idSubtipo;
     private byte descuento;
 
     @OneToMany(mappedBy = "productosModel") 
     private List<VentasModel> ventas;
 
+    @JsonIgnoreProperties({"productosModel"})
     @ManyToOne()
     @JoinColumn(name = "id_categoria", nullable = false)
     private CategoriaModel categoriaModel;
@@ -85,14 +86,6 @@ public class ProductosModel {
 
     public void setFotoProducto(String fotoProducto) {
         this.fotoProducto = fotoProducto;
-    }
-
-    public Long getIdSubtipo() {
-        return idSubtipo;
-    }
-
-    public void setIdSubtipo(Long idSubtipo) {
-        this.idSubtipo = idSubtipo;
     }
 
     public byte getDescuento() {

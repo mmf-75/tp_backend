@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,6 +36,11 @@ public class ClientesModel {
 
     @OneToMany(mappedBy = "clientesModel") 
     private List<VentasModel> ventas;
+
+    public ClientesModel() {
+        List<VentasModel> ventas = new ArrayList<VentasModel>();
+        this.ventas = ventas;
+    }
 
     public Long getId() {
         return id;
