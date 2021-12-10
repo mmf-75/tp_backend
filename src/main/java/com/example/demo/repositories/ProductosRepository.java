@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductosRepository extends CrudRepository<ProductosModel, Long>{
 
-    public abstract ArrayList<ProductosModel> findByPrecio(Integer precio);
+    ArrayList<ProductosModel> findByPrecio(Integer precio);
     
 }

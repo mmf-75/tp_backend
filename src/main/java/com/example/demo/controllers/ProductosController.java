@@ -37,13 +37,13 @@ public class ProductosController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "/post/productos/")
+    @PostMapping(path = "/post/productos")
     public ProductosModel postProducto(@RequestBody ProductosModel productosModel){
         return productosService.postProducto(productosModel);
     }
 
     @CrossOrigin
-    @PutMapping(path = "/put/productos/")
+    @PutMapping(path = "/put/productos")
     public ProductosModel putProducto(@RequestBody ProductosModel productosModel){
         return productosService.putProducto(productosModel);
     }
@@ -55,10 +55,10 @@ public class ProductosController {
     }
 
     @CrossOrigin
-    @GetMapping("/query")
+    @GetMapping(path = "/get/productos/query")
     public ArrayList<ProductosModel> getProductosByPrecio(@RequestParam("precio") Integer precio){
         // Probablemente esto no sirva para nada
-        return this.productosService.getProductosByPrecio(precio);
+        return productosService.getProductosByPrecio(precio);
     }
 
 }

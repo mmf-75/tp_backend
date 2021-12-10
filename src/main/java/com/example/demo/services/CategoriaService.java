@@ -18,4 +18,20 @@ public class CategoriaService {
         return (ArrayList<CategoriaModel>) categoriaRepository.findAll();
     }
 
+    public CategoriaModel getCategoria(Byte idCategoria) {
+        return categoriaRepository.findById(idCategoria).get();
+    }
+
+    public CategoriaModel postCategoria(CategoriaModel categoriaModel) {
+        return categoriaRepository.save(categoriaModel);
+    }
+
+    public CategoriaModel putCategoria(CategoriaModel categoriaModel) {
+        return categoriaRepository.save(categoriaModel);
+    }
+
+    public void deleteCategoria(Byte idCategoria) {
+        categoriaRepository.deleteById(idCategoria);
+    }
+
 }
