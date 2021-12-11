@@ -31,7 +31,7 @@ public class CategoriaController {
 
     @CrossOrigin
     @GetMapping(path = "/get/categorias/{idCategoria}")
-    public CategoriaModel getCategoria(Byte idCategoria){
+    public CategoriaModel getCategoria(@PathVariable Byte idCategoria){
         return categoriaService.getCategoria(idCategoria);
     }
 
