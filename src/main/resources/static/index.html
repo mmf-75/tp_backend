@@ -174,7 +174,7 @@
 </div>
 <!-- /SECTION -->
 
-  <div id="app">    
+  <div>    
       <div class="section section-product">
           <!-- container -->
           <div class="container">
@@ -189,11 +189,11 @@
                           <h3 class="title">Productos Nuevos</h3>
                           <div class="section-nav">
                               <ul class="section-tab-nav tab-nav">
-                                  <form id="app">
-                                      <select class="input-select">
-                                          <option v-for="categoria in categorias" value="1">{{categoria.nombre}}</option>
-                                      </select>
-                                  </form>
+                                <a class="btn" href="./index.html">Categorías</a>
+                                  <nav>
+                                    
+                                    <button v-for="categoria in categorias" class="btn" v-on:click="mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>
+                                  </nav>
                               </ul>
                           </div>
                       </div>
@@ -211,7 +211,8 @@
                               <div data-nav="#slick-nav-1">
                                   <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                                   <!-- product -->
-                                  <div v-for="producto in productos" class="product">
+                                  <div id="producto" >
+                                    <div v-for="producto in productos" class="product" v-bind:id="producto.categoriaModel.id">
                                       <div class="product-img">
                                           <img  :src="producto.fotoProducto"
                                               :alt="producto.nombreProducto">
@@ -239,6 +240,11 @@
                                                       class="tooltipp">agregar para comparar</span></button>
                                               <button class="quick-view"><i class="fa fa-eye"></i><span
                                                       class="tooltipp">vista rápida</span></button>
+                                                      
+                                          </div>
+                                          <div>
+                                            <a v-bind:href="'./modificar-producto.html?id=' + producto.id + '&nombreProducto=' + producto.nombreProducto + '&descripcion='+producto.descripcion + '&fotoProducto=' + producto.fotoProducto + '&precio=' + producto.precio + '&stock=' + producto.stock + '&descuento=' + producto.descuento + '&categoriaModel=' + producto.categoriaModel.id" class="btn btn-primary">Modificar</a>
+                                            <button class="btn btn-danger">Eliminar</button>
                                           </div>
                                       </div>
                                       <div class="add-to-cart">
@@ -246,6 +252,8 @@
                                               al carrito</button>
                                       </div>
                                   </div>
+                                  </div>
+                                  
                                   <!-- /product -->
 
 

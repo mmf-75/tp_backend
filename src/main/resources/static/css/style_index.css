@@ -2215,3 +2215,23 @@ textarea.input {
   width: 100%;
 }
 
+#app > .form-nuevoProducto{
+  width: 50%;
+  margin: 50px auto;
+}
+
+.ol-categorias{
+  margin-bottom: 50px;
+}
+
+.invisible{
+  display: none !important;
+}
+
+.form-control{
+  border-color: #D10024;
+}
+
+.titulo-h1{
+  margin-top: 50px;
+}

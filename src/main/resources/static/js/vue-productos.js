@@ -41,9 +41,22 @@ const app = new Vue({
                 })
         },
 
-        fetchData1(url1) {
-
+        mostrarCategoria(idCategoria){
+            let productos=document.querySelectorAll(".product")
+            
+            for (let i = 0; i < productos.length; i++) {
+                if (idCategoria!=productos[i].id) {
+                    productos[i].classList.add("invisible")
+                }else{
+                    productos[i].classList.remove("invisible")
+                }
+                
+                
+            }
         }
+
+
+
     }
 })
 
