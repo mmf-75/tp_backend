@@ -1,13 +1,18 @@
 package com.example.demo.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,6 +41,22 @@ public class ClientesModel {
 
     @OneToMany(mappedBy = "clientesModel") 
     private List<VentasModel> ventas;
+
+    @ManyToMany
+    @JoinTable(
+            name = "carrito",
+            joinColumns = @JoinColumn(name = "cliente_id"),
+            inverseJoinColumns = @JoinColumn(name = "producto_id")
+    )
+    Set<ProductosModel> carrito = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "deseados",
+            joinColumns = @JoinColumn(name = "cliente_id"),
+            inverseJoinColumns = @JoinColumn(name = "producto_id")
+    )
+    Set<ProductosModel> deseados = new HashSet<>();
 
     public ClientesModel() {
         List<VentasModel> ventas = new ArrayList<VentasModel>();
@@ -136,6 +157,46 @@ public class ClientesModel {
 
     public void setVentas(List<VentasModel> ventas) {
         this.ventas = ventas;
+    }
+
+    public Set<ProductosModel> getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Set<ProductosModel> carrito) {
+        this.carrito = carrito;
+    }
+
+    public Set<ProductosModel> getDeseados() {
+        return deseados;
+    }
+
+    public void setDeseados(Set<ProductosModel> deseados) {
+        this.deseados = deseados;
+    }
+    
+    //CARRITO 
+
+    public void addCarrito(ProductosModel productosModel){
+        this.carrito.add(productosModel);
+    }
+
+    public void deleteCarrito(ProductosModel productosModel){
+        this.carrito.remove(productosModel);
+    }
+
+    public void deleteAllCarrito(){
+        this.carrito.clear();
+    }
+
+    //DESEADOS
+
+    public void addDeseados(ProductosModel productosModel){
+        this.carrito.add(productosModel);
+    }
+
+    public void deleteDeseados(ProductosModel productosModel){
+        this.carrito.remove(productosModel);
     }
 
 }

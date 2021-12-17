@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,10 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -40,6 +44,14 @@ public class ProductosModel {
     @ManyToOne()
     @JoinColumn(name = "id_categoria", nullable = false)
     private CategoriaModel categoriaModel;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "carrito")
+    private Set<ClientesModel> carrito = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "deseados")
+    private Set<ClientesModel> deseados = new HashSet<>();
 
     public ProductosModel() {
         List<VentasModel> ventas = new ArrayList<VentasModel>();
@@ -117,5 +129,23 @@ public class ProductosModel {
     public void setCategoriaModel(CategoriaModel categoriaModel) {
         this.categoriaModel = categoriaModel;
     }
+
+    public Set<ClientesModel> getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Set<ClientesModel> carrito) {
+        this.carrito = carrito;
+    }
+
+    public Set<ClientesModel> getDeseados() {
+        return deseados;
+    }
+
+    public void setDeseados(Set<ClientesModel> deseados) {
+        this.deseados = deseados;
+    }
+
+    
 
 }
