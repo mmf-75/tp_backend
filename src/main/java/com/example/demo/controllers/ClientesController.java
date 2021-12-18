@@ -60,6 +60,39 @@ public class ClientesController {
     public ArrayList<ClientesModel> getClientesByNombre(@RequestParam("nombre") String nombre) {
         return clientesService.getClientesByNombre(nombre);
     }
+
+    //CARRITO
+
+    @CrossOrigin
+    @PutMapping("/{clienteId}/carrito/{productoId}")
+    ClientesModel agregarProductoACarritoCliente(@PathVariable Long clienteId, @PathVariable Long productoId) {
+        return clientesService.agregarProductoACarritoCliente(clienteId, productoId);
+    }
     
+    @CrossOrigin
+    @DeleteMapping("/{clienteId}/carrito/{productoId}")
+    void eliminarProductoDeCarritoCliente(@PathVariable Long clienteId, @PathVariable Long productoId){
+        clientesService.eliminarProductoDeCarritoCliente(clienteId, productoId);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/{clienteId}/carrito/all")
+    void eliminarAllDeCarritoCliente(@PathVariable Long clienteId){
+        clientesService.eliminarAllDeCarritoCliente(clienteId);
+    }
+
+    //DESEADOS
+
+    @CrossOrigin
+    @PutMapping("/{clienteId}/deseados/{productoId}")
+    ClientesModel agregarProductoADeseadosCliente(@PathVariable Long clienteId, @PathVariable Long productoId) {
+        return clientesService.agregarProductoADeseadosCliente(clienteId, productoId);
+    }
+    
+    @CrossOrigin
+    @DeleteMapping("/{clienteId}/deseados/{productoId}")
+    void eliminarProductoDeDeseadosCliente(@PathVariable Long clienteId, @PathVariable Long productoId){
+        clientesService.eliminarProductoDeDeseadosCliente(clienteId, productoId);
+    }
 
 }
