@@ -18,7 +18,7 @@ public class CategoriaService {
         return (ArrayList<CategoriaModel>) categoriaRepository.findAll();
     }
 
-    public CategoriaModel getCategoria(Byte idCategoria) {
+    public CategoriaModel getCategoria(Long idCategoria) {
         return categoriaRepository.findById(idCategoria).get();
     }
 
@@ -30,7 +30,7 @@ public class CategoriaService {
         return categoriaRepository.save(categoriaModel);
     }
 
-    public void deleteCategoria(Byte idCategoria) {
+    public void deleteCategoria(Long idCategoria) {
         categoriaRepository.deleteById(idCategoria);
     }
 

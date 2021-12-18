@@ -19,7 +19,7 @@ public class CategoriaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private byte id;
+    private Long id;
     @Column(nullable = false)
     private String nombre;
 
@@ -28,11 +28,11 @@ public class CategoriaModel {
     @Column(name = "productos")
     private List<ProductosModel> productosModel;
 
-    public byte getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(byte id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

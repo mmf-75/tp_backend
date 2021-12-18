@@ -31,7 +31,7 @@ public class CategoriaController {
 
     @CrossOrigin
     @GetMapping(path = "/get/categorias/{idCategoria}")
-    public CategoriaModel getCategoria(@PathVariable Byte idCategoria){
+    public CategoriaModel getCategoria(@PathVariable Long idCategoria){
         return categoriaService.getCategoria(idCategoria);
     }
 
@@ -49,7 +49,7 @@ public class CategoriaController {
 
     @CrossOrigin
     @DeleteMapping(path = "/delete/categorias/{idCategoria}")
-    public void deleteCategoria(@PathVariable Byte idCategoria){
+    public void deleteCategoria(@PathVariable Long idCategoria){
         categoriaService.deleteCategoria(idCategoria);
     }
 

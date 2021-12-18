@@ -63,6 +63,17 @@ const app = new Vue({
                 .catch(err => console.log(err))
                 .then(() => location.reload())        
         },
+
+        // eliminarCategoria(idCategoria){
+        //     var url = "http://localhost:8080/api/delete/categorias/" + idCategoria
+        //     const opciones = {
+        //         method: 'DELETE'
+        //     }
+        //     fetch(url, opciones)
+        //         .then(() => location.reload())
+        //         .catch(err => console.log(err))
+        //         .then(() => location.reload())
+        // }
     }
 })
 

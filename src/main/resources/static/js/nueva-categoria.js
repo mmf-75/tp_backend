@@ -3,8 +3,7 @@ function nuevaCategoria() {
 
     categoriaNueva={
         nombre: nombreCategoria
-    }
-    console.log(categoriaNueva)
+    };
     var url="http://localhost:8080/api/post/categorias"
     const opciones = {
         method: 'POST',
