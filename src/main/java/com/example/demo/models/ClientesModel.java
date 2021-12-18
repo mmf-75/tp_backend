@@ -192,11 +192,11 @@ public class ClientesModel {
     //DESEADOS
 
     public void addDeseados(ProductosModel productosModel){
-        this.carrito.add(productosModel);
+        this.deseados.add(productosModel);
     }
 
     public void deleteDeseados(ProductosModel productosModel){
-        this.carrito.remove(productosModel);
+        this.deseados.remove(productosModel);
     }
 
 }
