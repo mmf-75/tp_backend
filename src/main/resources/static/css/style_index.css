@@ -2235,3 +2235,9 @@ textarea.input {
 .titulo-h1{
   margin-top: 50px;
 }
+
+.btn-añadir-producto{
+  display: flex;
+  width: max-content;
+  margin: 50px auto;
+}

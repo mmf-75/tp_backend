@@ -193,7 +193,9 @@
                     <div class="_navegacion">
                       <nav id="_js-categorias">
                         <button v-for="categoria in categorias" class="btn"
-                          v-on:click="mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>                        
+                          v-on:click="mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>
+                        <a href="./categorias.html" class="btn btn-success" >Categorías</a>
+                        
                       </nav>
 
                     </div>
@@ -246,12 +248,21 @@
                                 rápida</span></button>
 
                           </div> -->
+                          <div>
+                            <a v-bind:href="'./modificar-producto.html?id=' + producto.id + '&nombreProducto=' + producto.nombreProducto + '&descripcion='+producto.descripcion + '&fotoProducto=' + producto.fotoProducto + '&precio=' + producto.precio + '&stock=' + producto.stock + '&descuento=' + producto.descuento + '&categoriaModel=' + producto.categoriaModel.id"
+                              class="btn btn-primary">Modificar</a>
+                            <button v-on:click="eliminarProducto(producto.id)" class="btn btn-danger">Eliminar</button>
+                          </div>
                         </div>
                         <div class="add-to-cart">
                           <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> agregar
                             al carrito</button>
                         </div>
                       </div>
+                    </div>
+
+                    <div>
+                      <a href="./agregar-producto.html" class="btn btn-success btn-añadir-producto">Añadir Producto</a>
                     </div>
 
                     <!-- /product -->
@@ -388,6 +399,9 @@
 
   </footer>
 
+  <script src="./js/nueva-categoria.js"></script>
+  <script src="./js/nuevo-producto.js"></script>
+  <script src="./js/modificar-producto.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>

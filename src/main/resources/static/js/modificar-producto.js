@@ -61,6 +61,6 @@ function modificarProducto() {
       redirect: 'follow'
   }
   fetch(url, opciones)
-        .then(() => window.location.assign("./index.html"))
+        .then(() => window.location.assign("./index-admin.html"))
           .catch(err => console.log(err))
 }

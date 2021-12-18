@@ -29,5 +29,5 @@ function nuevoProducto() {
     fetch(url, opciones)
             .then(() => location.reload())
             .catch(err => console.log(err))
-            .then(() => window.location.assign("./index.html"))
+            .then(() => window.location.assign("./index-admin.html"))
 }

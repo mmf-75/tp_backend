@@ -9,8 +9,7 @@ const app = new Vue({
     created() {
         var url = "http://localhost:8080/api/get/productos"
 
-        this.fetchData(url);
-        this.fetchData1(url1);
+        this.fetchData(url)
     },
     methods: {
         fetchData(url) {
@@ -64,16 +63,16 @@ const app = new Vue({
                 .then(() => location.reload())        
         },
 
-        // eliminarCategoria(idCategoria){
-        //     var url = "http://localhost:8080/api/delete/categorias/" + idCategoria
-        //     const opciones = {
-        //         method: 'DELETE'
-        //     }
-        //     fetch(url, opciones)
-        //         .then(() => location.reload())
-        //         .catch(err => console.log(err))
-        //         .then(() => location.reload())
-        // }
+        eliminarCategoria(idCategoria){
+            var url = "http://localhost:8080/api/delete/categorias/" + idCategoria
+            const opciones = {
+                method: 'DELETE'
+            }
+            fetch(url, opciones)
+                .then(() => location.reload())
+                .catch(err => console.log(err))
+                .then(() => location.reload())
+        }
     }
 })
 
