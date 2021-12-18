@@ -43,20 +43,26 @@ const app = new Vue({
 
         mostrarCategoria(idCategoria){
             let productos=document.querySelectorAll(".product")
-            
+
             for (let i = 0; i < productos.length; i++) {
                 if (idCategoria!=productos[i].id) {
                     productos[i].classList.add("invisible")
                 }else{
                     productos[i].classList.remove("invisible")
                 }
-                
-                
             }
-        }
+        },
 
-
-
+        eliminarProducto(idProducto){
+            var url = "http://localhost:8080/api/delete/productos/" + idProducto
+            const opciones = {
+                method: 'DELETE'
+            }
+            fetch(url, opciones)
+                .then(() => location.reload())
+                .catch(err => console.log(err))
+                .then(() => location.reload())        
+        },
     }
 })
 
