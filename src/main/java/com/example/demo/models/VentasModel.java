@@ -27,12 +27,12 @@ public class VentasModel {
     @Column(name = "precio_final")
     private float precioFinal;
 
-    @JsonIgnoreProperties({"ventas"})
+    @JsonIgnoreProperties({"ventas", "carrito", "deseados"})
     @ManyToOne()
     @JoinColumn(name = "id_cliente", nullable = false)
     private ClientesModel clientesModel;
 
-    @JsonIgnoreProperties({"ventas"})
+    @JsonIgnoreProperties({"ventas", "carrito", "deseados"})
     @ManyToOne()
     @JoinColumn(name = "id_producto", nullable = false)
     private ProductosModel productosModel;

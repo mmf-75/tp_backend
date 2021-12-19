@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import com.example.demo.models.VentasModel;
 import com.example.demo.services.VentasService;
@@ -35,10 +37,16 @@ public class VentasController {
         return ventasService.getVenta(idVentas);
     }
 
+    // @CrossOrigin
+    // @PostMapping(path = "/post/ventas")
+    // public VentasModel postVenta(@RequestBody VentasModel ventasModel){
+    //     return ventasService.postVenta(ventasModel);
+    // }
+
     @CrossOrigin
     @PostMapping(path = "/post/ventas")
-    public VentasModel postVenta(@RequestBody VentasModel ventasModel){
-        return ventasService.postVenta(ventasModel);
+    public void postVentas(@RequestBody VentasModel[] ventasModel){
+        ventasService.postVentas(ventasModel);
     }
 
     @CrossOrigin

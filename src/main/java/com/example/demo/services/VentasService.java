@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VentasService {
-    
+
     @Autowired
     VentasRepository ventasRepository;
 
@@ -22,8 +22,14 @@ public class VentasService {
         return ventasRepository.findById(idVentas).get();
     }
 
-    public VentasModel postVenta(VentasModel ventasModel) {
-        return ventasRepository.save(ventasModel);
+    // public VentasModel postVenta(VentasModel ventasModel) {
+    //     return ventasRepository.save(ventasModel);
+    // }
+
+    public void postVentas(VentasModel[] ventasModel) {
+        for(int i = 0; i < ventasModel.length; i++){
+            ventasRepository.save(ventasModel[i]);
+        }
     }
 
     public VentasModel putVenta(VentasModel ventasModel) {

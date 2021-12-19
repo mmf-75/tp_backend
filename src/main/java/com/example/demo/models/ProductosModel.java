@@ -37,6 +37,7 @@ public class ProductosModel {
     private String fotoProducto;
     private byte descuento;
 
+    @JsonIgnoreProperties({"productosModel"})
     @OneToMany(mappedBy = "productosModel") 
     private List<VentasModel> ventas;
 
