@@ -10,10 +10,32 @@
 }
 
 ._img-container {
+	position: relative;
 	grid-area: i;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+._img-container ._boton-deseado{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+._img-container ._boton-deseado i{
+	font-size: 30px;
+	color: #333;
+	transition: 0.3s;
+}
+
+._img-container ._boton-deseado._deseado i{
+	color: #d10024;
+	font-weight: 700;
+	text-shadow: 0 0 1px #d10024;
 }
 
 ._text-container {
@@ -100,7 +122,10 @@
 }
 
 ._comprar{
-    margin-left: 20px;
+	margin-top: 35px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
     padding: 0 30px;
     border-radius: 40px;
     background-color: #ef233c;

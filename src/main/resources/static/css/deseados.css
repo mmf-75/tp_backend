@@ -1,0 +1,152 @@
+._contenedor {
+	padding-top: 30px;
+
+	/* display: grid;
+	grid-gap: 1vw;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, auto);
+	grid-template-areas:
+		"f p p p p p"
+		"f p p p p p"; */
+}
+
+._productos {
+	grid-area: p;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+._card {
+	position: relative;
+	overflow: hidden;
+	width: 250px;
+	height: 395px;
+	margin: 12px;
+	padding: 15px;
+	font-size: 14px;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+	border: 1px solid #e4e7ed;
+	transition: 0.3s;
+}
+
+._card._invisible {
+	display: none;
+}
+
+._card ._descuento {
+	width: 55px;
+	height: 25px;
+	line-height: 22px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	border: 2px solid #d10024;
+	/* box-shadow: 0 0 1px #d10024; */
+	font-size: 12px;
+	color: #d10024;
+	text-align: center;
+	font-weight: 500;
+}
+
+._contenedor-img {
+	height: 250px;
+	transition: 0.3s;
+}
+
+._contenedor-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+._contenedor-datos p {
+	margin-bottom: 0.3rem;
+}
+
+._contenedor-datos ._categoria {
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #8d99ae;
+}
+
+._contenedor-datos ._nombre {
+	font-weight: 700;
+	font-size: 16px;
+	color: #2b2d42;
+}
+
+._contenedor-datos ._precio-neto {
+	font-size: 20px;
+	font-weight: 700;
+	color: #d10024;
+	word-spacing: 4px;
+}
+
+._contenedor-datos ._precio-old {
+	font-size: 14px;
+	color: #8e99ae;
+	font-weight: 400;
+	text-decoration: line-through;
+}
+
+._contenedor-boton {
+	position: absolute;
+	background: #1e1f29;
+	height: 70px;
+	width: 250px;
+	left: 0;
+	bottom: -70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s;
+}
+
+._contenedor-boton button {
+	display: block;
+	background: #ef233c;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	height: 40px;
+	padding: 0 30px;
+	border: none;
+	border-radius: 40px;
+}
+
+._card:hover {
+	border: 1px solid #d10024;
+	box-shadow: 0 0 2px #d10024;
+}
+
+._card:hover ._contenedor-img {
+	height: 180px;
+}
+
+._card:hover ._contenedor-boton {
+	bottom: 0px;
+}
+
+/* RESPONSIVIDAD */
+
+/* @media screen and (max-width: 575px) {
+	._contenedor {
+		grid-template-areas:
+			"f f f f f f"
+			"p p p p p p";
+	}
+
+	._filtros{
+		margin-left: 3vw;
+	}
+
+	._filtros form {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+} */

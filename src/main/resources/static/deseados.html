@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Deseados</title>
 
   <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/breadcrumb.css">
+  <link rel="stylesheet" href="./css/deseados.css">
 </head>
 
 <body>
@@ -155,13 +156,47 @@
 
 
 
+
   <main id="_vue-main">
 
+    <!-- BREADCRUMB -->
+    <div class="_breadcrumb">
+      <nav>
+        <a href="#">Inicio</a><span>/</span>
+        <a href="./store.html">Tienda</a><span>/</span>
+        <span>Deseados</span>
+      </nav>
+    </div>
 
-    <!-- ACÁ CODEAS ;D -->
-    <h1 style="text-transform: uppercase; text-align: center; margin: 50px;">Acá codeas vos! ;D</h1>
+    <div class="container">
+      <div class="_contenedor">
 
+        <!-- PRODUCTOS -> Los produchos que se muestran a la derecha de la pantalla -->
 
+        <div class="_productos">
+          <div class="_card" :id="'_card-' + producto.categoriaModel.nombre" v-for="producto in datos.deseados">
+            <v-flex class="_descuento" v-if="producto.descuento > 0">-{{producto.descuento}}%</v-flex>
+            <div class="_contenedor-img">
+              <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
+            </div>
+            <div class="_contenedor-datos">
+              <p class="_categoria">{{producto.categoriaModel.nombre}}</p>
+              <p class="_nombre">{{producto.nombreProducto}}</p>
+              <p class="_precio-neto" v-if="producto.descuento > 0">
+                ${{Math.round(producto.precio - (producto.descuento * producto.precio / 100))}}
+                <span class="_precio-old">${{producto.precio}}</span>
+              </p>
+              <p class="_precio-neto" v-else>
+                ${{producto.precio}}
+              </p>
+            </div>
+            <div class="_contenedor-boton">
+              <button class="_btn-continuar" v-on:click="datos.verDetalles(producto.id)">Ver Mas</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
 
@@ -272,7 +307,7 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="./js/blank.js"></script>
+  <script src="./js/deseados.js"></script>
 </body>
 
 </html>

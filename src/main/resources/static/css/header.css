@@ -1,3 +1,10 @@
+.fab,
+.fas {
+	color: #333;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
 header{
     overflow: hidden;
 }
@@ -47,6 +54,10 @@ header{
 
 ._busqueda ._derrecha{
     display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px 20px 0 0;
 }
 
 ._busqueda .fas,
@@ -61,13 +72,12 @@ header{
 }
 
 ._busqueda ._block-nidea {
-    margin-top: 10px;
 	position: relative;
-    height: 58px;
-    width: 80px;
+    height: 45px;
+    width: 70px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
@@ -150,7 +160,7 @@ header{
 
     ._busqueda ._block-nidea {
         margin-top: 20px;
-        height: 48px;
+        /* height: 48px; */
     }
 
     ._busqueda ._cant {

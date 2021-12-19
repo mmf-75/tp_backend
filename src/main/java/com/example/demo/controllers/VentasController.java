@@ -1,8 +1,6 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 import com.example.demo.models.VentasModel;
 import com.example.demo.services.VentasService;
