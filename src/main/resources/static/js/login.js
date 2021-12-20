@@ -11,7 +11,7 @@ async function iniciarSesion() {
         password: document.getElementById('txtPassword').value
     };
 
-    const url = 'api/login'
+    const url = "http://localhost:8080/api/login"
 
     const opciones = {
         method: 'POST',
@@ -26,9 +26,10 @@ async function iniciarSesion() {
         .then(res => res.text())
         .then(data => {
             if (data != 'FAIL') {
+                console.log(data);
                 localStorage.token = data;
                 localStorage.email = datos.email;
-                window.location.href = 'index.html'
+                // window.location.href = 'index.html'
             } else {
                 alert("Credenciales incorrectas, vuelva a intentarlo!!!");
             }

@@ -4,13 +4,15 @@ import com.example.demo.models.ClientesModel;
 import com.example.demo.services.ClientesService;
 import com.example.demo.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+// import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
+@RequestMapping(path = "/api")
 public class AuthController {
 
     //Inicio de sesion y autenticacion
@@ -21,7 +23,9 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
-    @RequestMapping(value = "api/login", method = RequestMethod.POST)
+    // @RequestMapping(value = "api/login", method = RequestMethod.POST)
+    @CrossOrigin
+    @PostMapping(path = "/login")
     public String login(@RequestBody ClientesModel usuario){
 
         ClientesModel usuarioLogueado = usuarioDao.obtenerUsuarioPorCredenciales(usuario);

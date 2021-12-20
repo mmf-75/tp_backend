@@ -13,9 +13,17 @@ import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class ClientesService {
     
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Autowired
     ClientesRepository clientesRepository;
 
@@ -79,6 +87,10 @@ public class ClientesService {
         clientesModel.deleteDeseados(productosModel);
         clientesRepository.save(clientesModel);
     }
+
+
+
+    // NESTASIO
 
     public ClientesModel obtenerUsuarioPorCredenciales(ClientesModel usuario) {
 
