@@ -1,5 +1,5 @@
 var datos = new Vue({
-    data:{
+    data: {
         categorias: [],
         cliente: {},
     },
@@ -25,6 +25,10 @@ var datos = new Vue({
                 .then(data => {
                     this.cliente = data
                     console.log(data);
+                })
+                .then(() => {
+                    if (this.cliente.administrador)
+                        window.location.assign("./index-admin.html")
                 })
                 .catch(err => {
                     console.log(err)

@@ -56,7 +56,7 @@
           </span>
           <span>
             <i class="far fa-user"></i>
-            <a href="#">Mi cuenta</a>
+            <a href="./modificar-cliente.html">Mi cuenta</a>
           </span>
           <span>
             <a href="./modificar-cliente.html">Mod Cliente</a>
@@ -89,7 +89,7 @@
           <a href="./deseados.html" class="_derrecha">
             <div class="_block-nidea">
               <v-flex v-if="datos.cliente.deseados?.length > 0" class="_cant">
-                {{datos.cliente.deseados.length}}
+                {{datos.cliente.deseados?.length}}
               </v-flex>
               <i class="far fa-heart"></i>
               <span class="fs-12">Deseados</span>
@@ -121,6 +121,35 @@
     </div>
 
   </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <main id="_vue-main">
 
@@ -224,7 +253,8 @@
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
                     <div id="producto">
-                      <div v-for="producto in datos.productos" v-if="producto.id>10" class="product" v-bind:id="producto.categoriaModel.id">
+                      <!-- v-if="producto.id>10" -->
+                      <div v-for="(producto, index) in datos.productos" v-if="index < 10" class="product" v-bind:id="producto.categoriaModel.id">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">
@@ -334,6 +364,40 @@
 
 
   </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <footer id="_vue-footer">
     <!-- Me olvidé de comentarlo xDD -->

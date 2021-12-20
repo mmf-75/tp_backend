@@ -56,7 +56,7 @@
           </span>
           <span>
             <i class="far fa-user"></i>
-            <a href="./registrar.html">Iniciar Sesión</a>
+            <a href="./modificar-cliente.html">Mi Cuenta</a>
           </span>
         </span>
       </div>
@@ -219,7 +219,7 @@
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
                     <div id="producto">
-                      <div v-for="producto in productos" v-if="producto.id>10" class="product" v-bind:id="producto.categoriaModel.id">
+                      <div v-for="(producto, index) in productos" v-if="index < 10" class="product" v-bind:id="producto.categoriaModel.id">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">

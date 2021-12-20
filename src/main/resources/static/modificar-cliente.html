@@ -153,8 +153,8 @@
     <!-- BREADCRUMB -->
     <div class="_breadcrumb">
       <nav>
-        <a href="#">Mi Cuenta</a><span>/</span>
-        <a href="./store.html">Modificar Datos</a><span>/</span>
+        <a href="./index.html">Home</a><span>/</span>
+        <span>Mi Cuenta</span>
       </nav>
     </div>
 
@@ -164,7 +164,7 @@
 
         <!-- DIRECCION -->
         <div class="_direccion">
-          <p class="_title">Modifique sus Datos</p>
+          <p class="_title">Mi Cuenta</p>
           <form action="#">
             <input class="form-control" type="text" id="modificarNombre" placeholder="Nombre" :value="datos.cliente?.nombre">
             <input class="form-control" type="text" id="modificarApellido" placeholder="Apellido" :value="datos.cliente?.apellido">
@@ -177,9 +177,9 @@
             <input class="form-control" type="number" id="modificarCodigoPostal" placeholder="Cod. Postal" :value="datos.cliente?.codigoPostal">
           </form>
           <button type="button" id="btn-nuevoProducto" class="btn btn-outline-dark" v-on:click="datos.modificarCliente()">Aplicar Cambios</button>
+          <button class="btn btn-outline-dark" v-on:click="datos.cerrarSesion()" type="button">Cerrar Sesión</button>
         </div>
 
-        <!-- PEDIDO -->
         
         </div>
       </div>
@@ -285,7 +285,6 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="./js/checkout.js"></script>
   <script src="./js/blank-modificar-cliente.js"></script>
 </body>
 

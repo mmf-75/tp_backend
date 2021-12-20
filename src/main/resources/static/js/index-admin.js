@@ -37,6 +37,7 @@ var datos = new Vue({
                 .then(res => res.json())
                 .then(data => {
                     this.categorias = data
+                    console.log(this.categorias);
                 })
                 .catch(err => {
                     console.log(err)
@@ -47,7 +48,7 @@ var datos = new Vue({
                 .then(res => res.json())
                 .then(data => {
                     this.cliente = data
-                    console.log(data);
+                    console.log(this.cliente);
                 })
                 .catch(err => {
                     console.log(err)
