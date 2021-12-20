@@ -154,7 +154,6 @@
     <div class="_breadcrumb">
       <nav>
         <a href="#">Mi Cuenta</a><span>/</span>
-        <a href="./store.html">Modificar Datos</a><span>/</span>
       </nav>
     </div>
 
@@ -164,7 +163,7 @@
 
         <!-- DIRECCION -->
         <div class="_direccion">
-          <p class="_title">Modifique sus Datos</p>
+          <p class="_title">Mis Datos</p>
           <form action="#">
             <input class="form-control" type="text" id="modificarNombre" placeholder="Nombre" :value="datos.clientes?.nombre">
             <input class="form-control" type="text" id="modificarApellido" placeholder="Apellido" :value="datos.clientes?.apellido">
@@ -176,7 +175,7 @@
             <input class="form-control" type="text" id="modificarProvincia" placeholder="Provincia" :value="datos.clientes?.provincia">
             <input class="form-control" type="number" id="modificarCodigoPostal" placeholder="Cod. Postal" :value="datos.clientes?.codigoPostal">
           </form>
-          <button type="button" id="btn-nuevoProducto" class="btn btn-outline-dark" v-on:click="datos.modificarCliente()">Aplicar Cambios</button>
+          <a class="btn btn-outline-dark">Modificar mis Datos</a>
         </div>
 
         <!-- PEDIDO -->

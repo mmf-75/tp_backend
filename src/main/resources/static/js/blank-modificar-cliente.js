@@ -7,7 +7,7 @@ var datos = new Vue({
     },
     created() {
         // this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaClientes("http://localhost:8080/api/get/clientes/" + location.search.substring(1))
+        this.cargaClientes("http://localhost:8080/api/get/clientes/2")
         // this.cargaProducto("http://localhost:8080/api/get/productos/1")
     },
     methods: {
@@ -32,11 +32,7 @@ var datos = new Vue({
                 direccion: direccion,
                 localidad: localidad,
                 provincia: provincia,
-                codigoPostal: codigoPostal,
-                ventas:this.clientes.ventas,
-                deseados:this.clientes.deseados,
-                carrito:this.clientes.carrito,
-                contrasenia:this.clientes.contrasenia
+                codigoPostal: codigoPostal
             }
             var url = "http://localhost:8080/api/put/clientes"
             const opciones = {
