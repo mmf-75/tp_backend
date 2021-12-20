@@ -5,10 +5,42 @@ var datos = new Vue({
         total: 0,
     },
     created() {
+        // this.nuevaCargaCliente()
         this.cargaCategorias("http://localhost:8080/api/get/categorias/")
         this.cargaCliente("http://localhost:8080/api/get/clientes/2")
     },
     methods: {
+        // nuevaCargaCliente() {
+        //     let clientes = []
+
+        //     let url = 'api/usuarios'
+
+        //     let opciones = {
+        //         method: 'GET',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json',
+        //             'Authorization': localStorage.token
+        //         }
+        //     }
+
+        //     console.log(localStorage.token);
+
+        //     fetch(url, opciones)
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             clientes = data
+        //             // console.log(clientes);
+        //         })
+        //         .catch(err => console.log(err))
+        //         .then(() => {
+        //             clientes.forEach(cliente => {
+        //                 console.log(cliente);
+        //             });
+        //         })
+
+
+        // },
         comprar() {
             let date = new Date()
             let fechaActual = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
