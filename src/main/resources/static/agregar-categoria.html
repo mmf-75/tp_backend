@@ -31,7 +31,7 @@
 
 <body>
   <!-- CONTACTO -->
-  <header>
+  <header id="_vue-header">
     <div class="_contacto">
       <div class="_text-zone">
         <span class="_text-izq">
@@ -73,6 +73,7 @@
 
           <select class="fs-14" name="categoria" id="categoria">
             <option value="todas">Categorias</option>
+            <option v-bind:value="categoria.nombre" v-for="categoria in datos.categorias">{{categoria.nombre}}</option>
           </select>
 
           <input class="fs-14" type="text" placeholder="Buscar productos">
@@ -82,24 +83,25 @@
         </span>
         <!-- LOS BOTONCITOS DE LA DERECHA -->
         <span>
-          <div class="_derrecha">
+          <a href="./deseados.html" class="_derrecha">
             <div class="_block-nidea">
-              <div class="_cant">
-                2
-              </div>
+              <v-flex v-if="datos.cliente.deseados?.length > 0" class="_cant">
+                {{datos.cliente.deseados.length}}
+              </v-flex>
               <i class="far fa-heart"></i>
               <span class="fs-12">Deseados</span>
             </div>
-          </div>
-          <div class="_derrecha">
+          </a>
+          <a href="./checkout.html" class="_derrecha">
             <div class="_block-nidea">
-              <div class="_cant">
-                3
-              </div>
+              <!-- El signo de pregunta en datos.cliente.carrito?.length quiere decir "si existe", o algo así -->
+              <v-flex v-if="datos.cliente.carrito?.length > 0" class="_cant">
+                {{datos.cliente.carrito.length}}
+              </v-flex>
               <i class="fas fa-shopping-cart"></i>
               <span class="fs-12">Carrito</span>
             </div>
-          </div>
+          </a>
         </span>
       </div>
 
@@ -107,9 +109,10 @@
 
     <!-- NAVEGACION -->
     <div class="_navegacion">
-      <nav id="_js-categorias">
-        <a href="./index.html">Inicio</a>
-        <a href="#">Mejores ofertas</a>
+      <nav>
+        <a href="#">Inicio</a>
+        <!-- <a href="#">Mejores ofertas</a> -->
+        <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
       </nav>
 
     </div>
@@ -134,7 +137,16 @@
   </main>
 
 
-  <footer>
+  <footer id="_vue-footer">
+    <!-- Me olvidé de comentarlo xDD -->
+    <div class="_newsletter">
+      <p>Suscribete para recibir <span>ofertas especiales</span></p>
+
+      <div class="_input-container">
+        <i class="far fa-envelope"></i>
+        <input type="text" id="" placeholder="Ingrese su email">
+        <button>Suscribirse</button>
+      </div>
 
       <div class="_botones">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -145,7 +157,6 @@
     </div>
 
     <div class="_footer-mid">
-
       <div class="_div-exterior">
         <div class="_div-medio">
           <div class="_div-interior">
@@ -155,8 +166,9 @@
             <a href="#"><i class="fas fa-phone-alt"></i>11-6215-8673</a>
             <a href="#"><i class="far fa-envelope"></i>codo-a-codo@email.com</a>
           </div>
-          <div id="_footer-categorias" class="_div-interior">
+          <div class="_div-interior">
             <p>Categorias</p>
+            <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
           </div>
         </div>
         <div class="_div-medio">
@@ -194,12 +206,13 @@
 
   </footer>
 
-  <script src="./js/nueva-categoria.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="./js/header.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/nueva-categoria.js"></script>
 </body>
 
 </html>
