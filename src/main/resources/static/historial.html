@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/breadcrumb.css">
+  <link rel="stylesheet" href="./css/historial.css">
 </head>
 
 <body>
@@ -163,13 +164,57 @@
       <nav>
         <a href="#">Inicio</a><span>/</span>
         <a href="./store.html">Tienda</a><span>/</span>
-        <span>Deseados</span>
+        <span>Mis compras</span>
       </nav>
     </div>
 
-    
 
 
+    <div class="container">
+
+      <div class="_cant-compras" v-if="datos.cliente.ventas?.length > 1">
+        <span>{{datos.cliente.ventas?.length}} compras</span>
+      </div>
+      <div class="_cant-compras" v-else>
+        <span>{{datos.cliente.ventas?.length}} compra</span>
+      </div>
+
+      <div class="_card" v-for="producto in datos.cliente.ventas">
+
+        <div class="_fecha-compra">
+          <div>
+            <span>{{producto.fechaCompra}}</span>
+          </div>
+          <div>
+            <a :href="'./product.html?' + producto.productosModel.id"><i class="fas fa-search"></i>Ver detalles</a>
+          </div>
+        </div>
+
+        <div class="_datos">
+          <div>
+            <div class="_imagen">
+              <img :src="producto.productosModel.fotoProducto" :alt="producto.productosModel.nombreProducto">
+            </div>
+          </div>
+          <div class="_texto">
+            <div class="_fecha-entrega">
+              <i class="fas fa-bolt"></i>
+              {{producto.fechaEntraga}}
+            </div>
+            <div class="_nombre">
+              {{producto.productosModel.nombreProducto}}
+            </div>
+            <div class="_precio">
+              ${{producto.precioFinal}}
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
 
 
 

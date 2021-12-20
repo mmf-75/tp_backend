@@ -1,5 +1,5 @@
 var datos = new Vue({
-    data:{
+    data: {
         categorias: [],
         cliente: {},
         total: 0,
@@ -9,31 +9,31 @@ var datos = new Vue({
         this.cargaCliente("http://localhost:8080/api/get/clientes/2")
     },
     methods: {
-        comprar(){
-            
+        comprar() {
             let date = new Date()
             let fechaActual = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
 
             let newPost = []
-            
-            const nuevaVenta = {
-                fechaCompra: fechaActual,
-                fechaEntraga: "Entrega en proceso",
-                precioFinal: this.total,
-                clientesModel:{
-                    id: 2
-                },
-                productosModel:{
-                    id: 1
-                }
-            }
 
-            newPost.push(nuevaVenta)
+            this.cliente.carrito.forEach(producto => {
+                const nuevaVenta = {
+                    fechaCompra: fechaActual,
+                    fechaEntraga: "Entrega en proceso",
+                    precioFinal: Math.round(producto.precio - (producto.precio * producto.descuento / 100)),
+                    clientesModel: {
+                        id: 2
+                    },
+                    productosModel: {
+                        id: producto.id
+                    }
+                }
+                newPost.push(nuevaVenta)
+            });
 
             console.log(newPost);
-        
+
             const url = 'http://localhost:8080/api/post/ventas/'
-        
+
             const opciones = {
                 method: 'POST',
                 body: JSON.stringify(newPost),
@@ -41,15 +41,15 @@ var datos = new Vue({
                     'Content-type': 'application/json'
                 }
             }
-        
-            // fetch(url, opciones)
-            // // .then(() => window.location.assign("./historial.html"))
-            // .then(() => console.log('toro en orden'))
-            // .catch(err => console.error(err))
 
+            fetch(url, opciones)
 
-
-
+                .then(() => {
+                    fetch('http://localhost:8080/api/2/carrito/all', { method: 'DELETE' })
+                        .then(() => window.location.assign("./historial.html"))
+                        .catch(err => console.error(err))
+                })
+                .catch(err => console.error(err))
 
         },
         cargaCategorias(url) {
@@ -69,17 +69,17 @@ var datos = new Vue({
                     this.cliente = data
                     console.log(data);
                 })
-                .then(()=>{
+                .then(() => {
                     for (let i = 0; i < this.cliente.carrito.length; i++) {
                         let producto = this.cliente.carrito[i]
-                        this.total += Math.round(producto.precio-(producto.descuento*producto.precio/100))
+                        this.total += Math.round(producto.precio - (producto.descuento * producto.precio / 100))
                     }
                 })
                 .catch(err => {
                     console.log(err)
                 })
         },
-        sacarDelCarrito(idProducto){
+        sacarDelCarrito(idProducto) {
             const url = `http://localhost:8080/api/${this.cliente.id}/carrito/${idProducto}`
             const opciones = {
                 method: 'DELETE'

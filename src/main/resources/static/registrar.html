@@ -16,11 +16,11 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/slick.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" href="css/slick-theme.css" /> -->
 
     <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" /> -->
 
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -30,7 +30,7 @@
 
     <!-- Vue -->
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -102,29 +102,31 @@
                                         <input type="date" class="form-control form-control-user" id="start" name="trip-start" value="aaaa-mm-dd" min="1900-01-01" max="2014-12-31">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="txtEmail" placeholder="Email">
-                                    <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
-                                </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="Telefono" class="form-control form-control-user" id="txtTelefono" placeholder="Telefono">
-                                    <div class="form-text"></div>
+                                <div class="form-text"></div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="txtProvincia" placeholder="Provincia">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="number" class="form-control form-control-user" id="txtCodigoPostal" placeholder="Codigo postal">
-                                    </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" id="txtFecha_Nacimiento" placeholder="Fecha de Nacimiento">
+                                    <div class="form-text">Ej: yyyy-mm-dd</div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="txtLocalidad" placeholder="Localidad">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="txtDirección" placeholder="Dirección">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="txtEmail" placeholder="Email">
+                                <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <input type="Telefono" class="form-control form-control-user" id="txtTelefono" placeholder="Telefono">
+                                <div class="form-text"></div>
+                            </div> -->
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="txtProvincia" placeholder="Provincia">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="number" class="form-control form-control-user" id="txtCodigo_Postal" placeholder="Codigo postal">
                                 </div>
     
     
@@ -136,19 +138,32 @@
                                         <input type="password" class="form-control form-control-user" id="txtRepetirPassword" placeholder="Repite la contraseña">
                                     </div>
                                 </div>
-                                <!--Este boton llama a la funcion registrar usuario-->
-                                <a onclick="registrarUsuario()" href="#" class="btn btn-primary btn-user btn-block">
-                                Registrarse
-                            </a>
-                                <hr>
-                                <div class="text-center">
-                                    <h5><a href="./login.html">¿Ya tienes una cuenta? ¡Inicia sesión!</a></h5>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" id="txtDireccion" placeholder="Dirección">
                                 </div>
-                            </form>
-                        </div>
-
-                    </main>
-
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user" id="txtPassword" placeholder="Contraseña">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user" id="txtRepetirPassword" placeholder="Repite la contraseña">
+                                </div>
+                            </div>
+                            <!--Este boton llama a la funcion registrar usuario-->
+                            <button type="button" onclick="registrarUsuario()" class="btn btn-primary btn-user btn-block">
+                                Registrarse
+                            </button>
+                            <hr>
+                            <div class="text-center">
+                                <h5><a href="./login.html">¿Ya tienes una cuenta? ¡Inicia sesión!</a></h5>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
                     <!--/REGISTRO-->
 
                     <!-- /NEWSLETTER -->
@@ -251,13 +266,14 @@
 
                     <!-- jQuery Plugins -->
                     <!-- <script src="./js/vue-categorias.js"></script> -->
-                    <script src="./js/vue-productos.js"></script>
-                    <script src="js/jquery.min.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
-                    <script src="js/slick.min.js"></script>
-                    <script src="js/nouislider.min.js"></script>
-                    <script src="js/jquery.zoom.min.js"></script>
-                    <script src="js/main.js"></script>
+                    <!-- <script src="./js/vue-productos.js"></script> -->
+                    <!-- <script src="js/jquery.min.js"></script> -->
+                    <!-- <script src="js/bootstrap.min.js"></script> -->
+                    <!-- <script src="js/slick.min.js"></script>
+                    <script src="js/nouislider.min.js"></script> -->
+                    <!-- <script src="js/jquery.zoom.min.js"></script> -->
+                    <!-- <script src="js/main.js"></script> -->
+                    <script src="js/registrar.js"></script>
 
 </body>
 
