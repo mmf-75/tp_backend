@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 
+import com.example.demo.models.Certificados;
 import com.example.demo.models.ClientesModel;
 import com.example.demo.services.ClientesService;
 // import com.example.demo.utils.JWTUtil;
@@ -45,6 +46,12 @@ public class ClientesController {
     //     String usuarioId = jwtUtil.getKey(token);
     //     return usuarioId != null; // Verificamos que no sea nulo
     // }
+
+    @CrossOrigin
+    @PostMapping(path = "/logueo")
+    public Long logueo(@RequestBody Certificados certificados){
+        return clientesService.logueo(certificados);
+    }
 
     @CrossOrigin
     @GetMapping(path = "/get/clientes")

@@ -41,6 +41,8 @@ public class ClientesModel {
     private String codigoPostal;
     private String direccion; 
 
+    private Boolean administrador;
+
     @JsonIgnoreProperties({"clientesModel"})
     @OneToMany(mappedBy = "clientesModel") 
     private List<VentasModel> ventas;
@@ -176,6 +178,14 @@ public class ClientesModel {
 
     public void setDeseados(Set<ProductosModel> deseados) {
         this.deseados = deseados;
+    }
+
+    public Boolean getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Boolean administrador) {
+        this.administrador = administrador;
     }
     
     //CARRITO 

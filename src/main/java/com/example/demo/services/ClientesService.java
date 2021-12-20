@@ -3,6 +3,7 @@ package com.example.demo.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.models.Certificados;
 import com.example.demo.models.ClientesModel;
 import com.example.demo.models.ProductosModel;
 import com.example.demo.repositories.ClientesRepository;
@@ -114,6 +115,18 @@ public class ClientesService {
             return lista.get(0);
         }
         return null; //si las credenciales no son correctas
+    }
+
+    public Long logueo(Certificados certificados) {
+        List<ClientesModel> lista = clientesRepository.findByEmail(certificados.getEmail());
+        for (ClientesModel clientesModel : lista) {
+            System.out.println(clientesModel.getContrasenia() + " " + certificados.getContrasenia());
+            if (clientesModel.getContrasenia().equals(certificados.getContrasenia())) {
+                System.out.println("VERDADERO");
+                return clientesModel.getId();
+            }
+        }
+        return null;
     }
     
 }

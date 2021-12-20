@@ -5,8 +5,10 @@ var datos = new Vue({
         productos: []
     },
     created() {
+        let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+        this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
+
         this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaCliente("http://localhost:8080/api/get/clientes/2")
         this.cargaProductos("http://localhost:8080/api/get/productos")
     },
     methods: {
@@ -55,8 +57,8 @@ var datos = new Vue({
                     }
                 }
                 //filtro solo ofertas
-                if(enOferta){
-                    if(!producto.querySelector('._descuento')){
+                if (enOferta) {
+                    if (!producto.querySelector('._descuento')) {
                         quiereVerlo = false
                     }
                 }
