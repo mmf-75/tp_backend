@@ -40,13 +40,10 @@ public class ClientesController {
     @CrossOrigin
     @GetMapping(path = "/get/clientes")
     public ArrayList<ClientesModel> getClientes(@RequestHeader(value="Authorization")String token){
-
         if(!validarToken(token)){
             return null;
         }
-        // return usuarioDao.getUsuarios();
         return clientesService.getClientes();
-
     }
 
     // @CrossOrigin
