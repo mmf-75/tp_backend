@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import com.example.demo.models.ClientesModel;
 import com.example.demo.services.ClientesService;
+import com.example.demo.utils.JWTUtil;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,11 +29,31 @@ public class ClientesController {
     @Autowired
     ClientesService clientesService;
 
+    @Autowired
+    private JWTUtil jwtUtil;
+
+    private boolean validarToken(String token){
+        String usuarioId = jwtUtil.getKey(token);
+        return usuarioId != null; // Verificamos que no sea nulo
+    }
+
     @CrossOrigin
     @GetMapping(path = "/get/clientes")
-    public ArrayList<ClientesModel> getClientes(){
+    public ArrayList<ClientesModel> getClientes(@RequestHeader(value="Authorization")String token){
+
+        if(!validarToken(token)){
+            return null;
+        }
+        // return usuarioDao.getUsuarios();
         return clientesService.getClientes();
+
     }
+
+    // @CrossOrigin
+    // @GetMapping(path = "/get/clientes")
+    // public ArrayList<ClientesModel> getClientes(){
+    //     return clientesService.getClientes();
+    // }
 
     @CrossOrigin
     @GetMapping(path = "/get/clientes/{idCliente}")
@@ -40,7 +64,17 @@ public class ClientesController {
     @CrossOrigin
     @PostMapping(path = "/post/clientes")
     public ClientesModel postCliente(@RequestBody ClientesModel clientesModel){
+        // return clientesService.postCliente(clientesModel);
+
+        // Implementacion de ARGON2
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        // .hash(cant. Iteraciones, uso de memoria, paralelismo=hilosdeproceso, objeto a hashear);
+        String hash = argon2.hash(1, 1024, 1, clientesModel.getContrasenia());
+        clientesModel.setContrasenia(hash);
+
         return clientesService.postCliente(clientesModel);
+        // usuarioDao.registrar(clientesModel);
+
     }
 
     @CrossOrigin

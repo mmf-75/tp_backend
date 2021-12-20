@@ -1,12 +1,15 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.example.demo.models.ClientesModel;
 import com.example.demo.models.ProductosModel;
 import com.example.demo.repositories.ClientesRepository;
 import com.example.demo.repositories.ProductosRepository;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -75,6 +78,30 @@ public class ClientesService {
         ProductosModel productosModel = productosRepository.findById(productoId).get();
         clientesModel.deleteDeseados(productosModel);
         clientesRepository.save(clientesModel);
+    }
+
+    public ClientesModel obtenerUsuarioPorCredenciales(ClientesModel usuario) {
+
+        // Está viendo a que usuario pertenece este mail
+        // String query = "FROM Usuario WHERE email = :email";
+        // List<ClientesModel> lista = entityManager.createQuery(query)
+        //         .setParameter("email", usuario.getEmail())
+        //         .getResultList();
+
+        List<ClientesModel> lista = clientesRepository.findByEmail(usuario.getEmail());
+
+        //Controla error en caso de que exista un email asociado a una cuenta y que la password retorne un "Null Pointer exception"
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+        String passwordHashed = lista.get(0).getContrasenia();
+
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        if (argon2.verify(passwordHashed, usuario.getContrasenia())) {//compara un HASH con una contraseñas
+            return lista.get(0);
+        }
+        return null; //si las credenciales no son correctas
     }
     
 }

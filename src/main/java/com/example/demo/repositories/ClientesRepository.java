@@ -11,5 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface ClientesRepository extends CrudRepository<ClientesModel, Long> {
 
     ArrayList<ClientesModel> findByNombre(String nombre);
+
+    ArrayList<ClientesModel> findByEmail(String email);
     
 }
