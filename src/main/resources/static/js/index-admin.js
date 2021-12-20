@@ -1,7 +1,7 @@
 var datos = new Vue({
     data:{
         categorias: [],
-        cliente: {},
+        clientes: {},
         productos: []
     },
     created() {

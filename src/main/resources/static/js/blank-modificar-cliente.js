@@ -1,13 +1,13 @@
 var datos = new Vue({
     data:{
         // categorias: [],
-        clientes: [],
+        cliente: [],
         // total: 0,
         // producto: {}
     },
     created() {
         // this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaClientes("http://localhost:8080/api/get/clientes/2")
+        this.cargaCliente("http://localhost:8080/api/get/clientes/2")
         // this.cargaProducto("http://localhost:8080/api/get/productos/1")
     },
     methods: {
@@ -32,7 +32,8 @@ var datos = new Vue({
                 direccion: direccion,
                 localidad: localidad,
                 provincia: provincia,
-                codigoPostal: codigoPostal
+                codigoPostal: codigoPostal,
+                ventas: {id=this.cliente.ventas.id}
             }
             var url = "http://localhost:8080/api/put/clientes"
             const opciones = {
@@ -44,9 +45,9 @@ var datos = new Vue({
                 redirect: 'follow'
             }
             console.log(clienteModificado);
-            // fetch(url, opciones)
-            //     .then(() => window.location.assign("./index-admin.html"))
-            //     .catch(err => console.log(err))
+            fetch(url, opciones)
+                .then(() => window.location.assign("./index-admin.html"))
+                .catch(err => console.log(err))
         },
         eliminarCliente(idCliente){
                 var url = "http://localhost:8080/api/delete/clientes/" + idCliente
@@ -69,11 +70,11 @@ var datos = new Vue({
         //             console.log(err)
         //         })
         // },
-        cargaClientes(url) {
+        cargaCliente(url) {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    this.clientes = data
+                    this.cliente = data
                     console.log(data);
                 })
                 .catch(err => {

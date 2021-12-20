@@ -117,7 +117,7 @@
     <!-- NAVEGACION -->
     <div class="_navegacion">
       <nav>
-        <a href="#">Inicio</a>
+        <a href="./index-admin.html">Inicio</a>
         <a href="#">Mejores ofertas</a>
         <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
       </nav>
@@ -166,15 +166,15 @@
         <div class="_direccion">
           <p class="_title">Modifique sus Datos</p>
           <form action="#">
-            <input class="form-control" type="text" id="modificarNombre" placeholder="Nombre" :value="datos.clientes?.nombre">
-            <input class="form-control" type="text" id="modificarApellido" placeholder="Apellido" :value="datos.clientes?.apellido">
+            <input class="form-control" type="text" id="modificarNombre" placeholder="Nombre" :value="datos.cliente?.nombre">
+            <input class="form-control" type="text" id="modificarApellido" placeholder="Apellido" :value="datos.cliente?.apellido">
             <input class="form-control" type="text" id="modificarEmail" placeholder="Email" :value="datos.cliente?.email">
-            <input class="form-control" type="text" id="modificarFechaNacimiento" placeholder="Fecha de Nacimiento" :value="datos.clientes?.fechaNacimiento">
-            <input class="form-control" type="number" id="modificarTelefono" placeholder="Teléfono" :value="datos.clientes?.telefono">
-            <input class="form-control" type="text" id="modificarDireccion" placeholder="Direccion" :value="datos.clientes?.direccion">
-            <input class="form-control" type="text" id="modificarLocalidad" placeholder="Localidad" :value="datos.clientes?.localidad">
-            <input class="form-control" type="text" id="modificarProvincia" placeholder="Provincia" :value="datos.clientes?.provincia">
-            <input class="form-control" type="number" id="modificarCodigoPostal" placeholder="Cod. Postal" :value="datos.clientes?.codigoPostal">
+            <input class="form-control" type="text" id="modificarFechaNacimiento" placeholder="Fecha de Nacimiento" :value="datos.cliente?.fechaNacimiento">
+            <input class="form-control" type="number" id="modificarTelefono" placeholder="Teléfono" :value="datos.cliente?.telefono">
+            <input class="form-control" type="text" id="modificarDireccion" placeholder="Direccion" :value="datos.cliente?.direccion">
+            <input class="form-control" type="text" id="modificarLocalidad" placeholder="Localidad" :value="datos.cliente?.localidad">
+            <input class="form-control" type="text" id="modificarProvincia" placeholder="Provincia" :value="datos.cliente?.provincia">
+            <input class="form-control" type="number" id="modificarCodigoPostal" placeholder="Cod. Postal" :value="datos.cliente?.codigoPostal">
           </form>
           <button type="button" id="btn-nuevoProducto" class="btn btn-outline-dark" v-on:click="datos.modificarCliente()">Aplicar Cambios</button>
         </div>

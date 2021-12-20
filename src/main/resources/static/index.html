@@ -112,7 +112,7 @@
       <nav>
         <a href="#">Inicio</a>
         <!-- <a href="#">Mejores ofertas</a> -->
-        <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
+        <a href="./store.html" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
       </nav>
 
     </div>
@@ -219,7 +219,7 @@
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
                     <div id="producto">
-                      <div v-for="producto in productos" class="product" v-bind:id="producto.categoriaModel.id">
+                      <div v-for="producto in productos" v-if="producto.id>10" class="product" v-bind:id="producto.categoriaModel.id">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">
@@ -231,7 +231,7 @@
                           <p class="product-category">{{producto.categoriaModel.nombre}}</p>
                           <h3 class="product-name"><a href="#">{{producto.nombreProducto}}</a></h3>
                           <h4 class="product-price">
-                            ${{Math.round(producto.precio-(producto.descuento*producto.precio/100))}} <del
+                            ${{Math.round(producto.precio-(producto.descuento*producto.precio/100))-1}} <del
                               class="product-old-price">${{producto.precio}}</del></h4>
                           <!-- <div class="product-rating">
                             <i class="fa fa-star"></i>
