@@ -7,7 +7,8 @@ var datos = new Vue({
     },
     created() {
         // this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaCliente("http://localhost:8080/api/get/clientes/2")
+        let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+        this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
         // this.cargaProducto("http://localhost:8080/api/get/productos/1")
     },
     methods: {
