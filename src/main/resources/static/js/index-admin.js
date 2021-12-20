@@ -1,15 +1,25 @@
 var datos = new Vue({
-    data: {
+    data:{
         categorias: [],
         cliente: {},
-        producto: {}
+        productos: []
     },
     created() {
-        this.cargaCategorias("http://localhost:8080/api/get/categorias/" + location.search.substring(1))
+        this.cargaCategorias("http://localhost:8080/api/get/categorias/")
         this.cargaCliente("http://localhost:8080/api/get/clientes/2")
-        this.cargaProducto("http://localhost:8080/api/get/productos/")
+        this.cargaProductos("http://localhost:8080/api/get/productos/")
     },
     methods: {
+        eliminarProducto(idProducto){
+            var url = "http://localhost:8080/api/delete/productos/" + idProducto
+            const opciones = {
+                method: 'DELETE'
+            }
+            fetch(url, opciones)
+                .then(() => location.reload())
+                .catch(err => console.log(err))
+                .then(() => location.reload())        
+        },
         mostrarCategoria(idCategoria){
             let productos=document.querySelectorAll(".product")
 
@@ -21,27 +31,6 @@ var datos = new Vue({
                 }
             }
         },
-        modificarCategoria() {
-            let nombre=document.getElementById("modificarCategoria").value
-          
-            categoriaModificada={
-                id: this.categorias.id,
-                nombre: nombre,
-            }
-            var url="http://localhost:8080/api/put/categorias"
-            const opciones = {
-                method: 'PUT',
-                body: JSON.stringify(categoriaModificada),
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                redirect: 'follow'
-            }
-            console.log(categoriaModificada);
-            fetch(url, opciones)
-                  .then(() => window.location.assign("./index-admin.html"))
-                    .catch(err => console.log(err))
-          },
         cargaCategorias(url) {
             fetch(url)
                 .then(res => res.json())
@@ -63,12 +52,12 @@ var datos = new Vue({
                     console.log(err)
                 })
         },
-        cargaProducto(url) {
+        cargaProductos(url) {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    this.producto = data
-                    console.table(this.producto)
+                    this.productos = data
+                    console.table(this.productos)
                 })
                 .catch(err => {
                     console.log(err)

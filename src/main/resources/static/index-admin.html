@@ -195,8 +195,8 @@
                   <ul class="section-tab-nav tab-nav">
                     <div class="_navegacion">
                       <nav id="_js-categorias">
-                        <button v-for="categoria in categorias" class="btn btn-outline-secondary"
-                          v-on:click="mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>
+                        <button v-for="categoria in datos.categorias" class="btn btn-outline-secondary"
+                          v-on:click="datos.mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>
                         <a href="./categorias.html" class="btn btn-outline-dark" >Mod. Categorías</a>
                         
                       </nav>
@@ -212,7 +212,7 @@
           <!-- /section title -->
 
           <!-- Products tab & slick -->
-          <div class="col-md-12" id="app">
+          <div class="col-md-12">
             <div class="row">
               <div>
                 <!-- tab -->
@@ -221,7 +221,7 @@
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
                     <div id="producto">
-                      <div v-for="producto in productos" class="product" v-bind:id="producto.categoriaModel.id">
+                      <div v-for="producto in datos.productos" class="product" v-bind:id="producto.categoriaModel.id">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">
@@ -254,7 +254,7 @@
                           <div>
                             <a v-bind:href="'./modificar-producto.html?' + producto.id"
                               class="btn btn-outline-dark">Modificar</a>
-                            <button v-on:click="eliminarProducto(producto.id)" class="btn btn-outline-dark">Eliminar</button>
+                            <button v-on:click="datos.eliminarProducto(producto.id)" class="btn btn-outline-dark">Eliminar</button>
                           </div>
                         </div>
                         <div class="add-to-cart">
@@ -264,7 +264,7 @@
                     </div>
 
                     <div>
-                      <a href="'./agregar-producto.html?'+producto.id" class="btn btn-outline-dark btn-añadir-producto">Añadir Producto</a>
+                      <a href="./agregar-producto.html" class="btn btn-outline-dark btn-añadir-producto">Añadir Producto</a>
                     </div>
 
                     <!-- /product -->
@@ -401,15 +401,11 @@
 
   </footer>
 
-  <script src="./js/nueva-categoria.js"></script>
-  <script src="./js/nuevo-producto.js"></script>
-  <script src="./js/modificar-producto.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="./js/index.js"></script>
-  <script src="./js/vue-productos.js"></script>
+  <script src="./js/index-admin.js"></script>
 </body>
 
 </html>
