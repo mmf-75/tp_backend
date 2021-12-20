@@ -770,18 +770,20 @@ textarea.input {
 .shop .shop-body {
   position: absolute;
   top: 0;
-  width: 75%;
+  width: max-content;
   padding: 30px;
   z-index: 10;
 }
 
 .shop .shop-body h3 {
   color: #FFF;
+  
 }
 
 .shop .shop-body .cta-btn {
   color: #FFF;
   text-transform: uppercase;
+  
 }
 
 /*=========================================================

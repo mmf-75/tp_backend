@@ -1,48 +1,56 @@
 var datos = new Vue({
     data:{
-        categorias: [],
-        clientes: {},
+        // categorias: [],
+        clientes: [],
         // total: 0,
         // producto: {}
     },
     created() {
-        this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaCliente("http://localhost:8080/api/get/clientes/")
+        // this.cargaCategorias("http://localhost:8080/api/get/categorias/")
+        this.cargaClientes("http://localhost:8080/api/get/clientes/" + location.search.substring(1))
         // this.cargaProducto("http://localhost:8080/api/get/productos/1")
     },
     methods: {
-        nuevoCliente(){
-            let nombre=document.getElementById("nuevoNombre").value
-            let descripcion=document.getElementById("nuevoDescripcion").value
-            let foto=document.getElementById("nuevoFoto").value
-            let precio=parseInt(document.getElementById("nuevoPrecio").value)
-            let stock=parseInt(document.getElementById("nuevoStock").value)
-            let descuento=parseInt(document.getElementById("nuevoDescuento").value)
-            let categoria=document.getElementById("nuevoCategoria").value
-        
-            productoNuevo={
-                nombreProducto: nombre,
-                descripcion: descripcion,
-                fotoProducto: foto,
-                precio: precio,
-                stock: stock,
-                descuento: descuento,
-                categoriaModel: {id:categoria}
+        modificarCliente(){
+            let nombre = document.getElementById("modificarNombre").value
+            let apellido = document.getElementById("modificarApellido").value
+            let email = document.getElementById("modificarEmail").value
+            let fechaNacimiento = document.getElementById("modificarFechaNacimiento").value
+            let telefono = parseInt(document.getElementById("modificarTelefono").value)
+            let direccion = document.getElementById("modificarDireccion").value
+            let localidad = document.getElementById("modificarLocalidad").value
+            let provincia = document.getElementById("modificarProvincia").value
+            let codigoPostal = parseInt(document.getElementById("modificarCodigoPostal").value)
+
+            clienteModificado = {
+                id: this.clientes.id,
+                nombre: nombre,
+                apellido: apellido,
+                email: email,
+                fechaNacimiento: fechaNacimiento,
+                telefono: telefono,
+                direccion: direccion,
+                localidad: localidad,
+                provincia: provincia,
+                codigoPostal: codigoPostal,
+                ventas:this.clientes.ventas,
+                deseados:this.clientes.deseados,
+                carrito:this.clientes.carrito,
+                contrasenia:this.clientes.contrasenia
             }
-            var url="http://localhost:8080/api/post/productos"
+            var url = "http://localhost:8080/api/put/clientes"
             const opciones = {
-                method: 'POST',
-                body: JSON.stringify(productoNuevo),
+                method: 'PUT',
+                body: JSON.stringify(clienteModificado),
                 headers: {
                     'Content-type': 'application/json'
                 },
                 redirect: 'follow'
             }
-            // console.log(productoNuevo);
-            fetch(url, opciones)
-                    .then(() => location.reload())
-                    .catch(err => console.log(err))
-                    .then(() => window.location.assign("./index-admin.html"))
+            console.log(clienteModificado);
+            // fetch(url, opciones)
+            //     .then(() => window.location.assign("./index-admin.html"))
+            //     .catch(err => console.log(err))
         },
         eliminarCliente(idCliente){
                 var url = "http://localhost:8080/api/delete/clientes/" + idCliente
@@ -55,54 +63,28 @@ var datos = new Vue({
                     .then(() => location.reload())
             
         },
-        cargaCategorias(url) {
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    this.categorias = data
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        },
-        cargaCliente(url) {
+        // cargaCategorias(url) {
+        //     fetch(url)
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             this.categorias = data
+        //         })
+        //         .catch(err => {
+        //             console.log(err)
+        //         })
+        // },
+        cargaClientes(url) {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     this.clientes = data
                     console.log(data);
                 })
-                // .then(()=>{
-                //     for (let i = 0; i < this.cliente.carrito.length; i++) {
-                //         this.total += this.cliente.carrito[i].precio
-                //     }
-                // })
                 .catch(err => {
                     console.log(err)
                 })
         },
-        // cargaProducto(url) {
-        //     fetch(url)
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             this.productos = data
-        //             console.table(this.productos)
-        //         })
-        //         .catch(err => {
-        //             console.log(err)
-        //         })
-        // },
-        // sacarDelCarrito(idProducto){
-        //     const url = `http://localhost:8080/api/${this.cliente.id}/carrito/${idProducto}`
-        //     const opciones = {
-        //         method: 'DELETE'
-        //     }
-        //     fetch(url, opciones)
-        //         .then(res => res.text())
-        //         .then(() => location.reload())
-        //         .catch(err => console.error(err))
-        // }
-    }
+    },
 })
 
 new Vue({
