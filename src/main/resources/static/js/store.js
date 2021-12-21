@@ -5,13 +5,22 @@ var datos = new Vue({
         productos: []
     },
     created() {
-        let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-        this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
-
+        if (localStorage.getItem("tp-backend-cliente")) {
+            let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+            this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
+        }
         this.cargaCategorias("http://localhost:8080/api/get/categorias/")
         this.cargaProductos("http://localhost:8080/api/get/productos")
     },
     methods: {
+        miCuenta(){
+            if (localStorage.getItem("tp-backend-cliente")) {
+                window.location.assign("./modificar-cliente.html")
+            }
+            else{
+                window.location.assign("./login3.html")
+            }
+        },
         btnFiltrar() {
             let enOferta = document.querySelector('#_en-oferta').checked
             let precioMin = document.querySelector('#_precio-min').value

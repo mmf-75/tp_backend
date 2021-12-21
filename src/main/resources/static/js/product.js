@@ -2,39 +2,53 @@ var datos = new Vue({
     data: {
         categorias: [],
         cliente: {},
-        // total: 0,
         producto: {}
     },
     created() {
+        if (localStorage.getItem("tp-backend-cliente")) {
+            let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+            this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
+        }
+        this.cargaCategorias("http://localhost:8080/api/get/categorias/")
         let id = location.search.substring(1)
         id == '' ? id = 1 : ''
-        this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        this.cargaCliente("http://localhost:8080/api/get/clientes/2")
         this.cargaProducto(`http://localhost:8080/api/get/productos/${id}`)
     },
     methods: {
-        deseado() {
-            let yaDeseado = false
-            this.cliente.deseados.forEach(productoDeseado => {
-                if (this.producto.id === productoDeseado.id) {
-                    yaDeseado = true
-                }
-            })
-            const url = `http://localhost:8080/api/2/deseados/${this.producto.id}`
-            let opciones
-            if (yaDeseado) {
-                opciones = {
-                    method: 'DELETE',
-                }
+        miCuenta() {
+            if (localStorage.getItem("tp-backend-cliente")) {
+                window.location.assign("./modificar-cliente.html")
             }
             else {
-                opciones = {
-                    method: 'PUT',
-                }
+                window.location.assign("./login3.html")
             }
-            fetch(url, opciones)
-                .then(() => location.reload())
-                .catch(err => console.error(err))
+        },
+        deseado() {
+            if (!localStorage.getItem("tp-backend-cliente")) {
+                window.location.assign("./login3.html")
+            } else {
+                let yaDeseado = false
+                this.cliente.deseados.forEach(productoDeseado => {
+                    if (this.producto.id === productoDeseado.id) {
+                        yaDeseado = true
+                    }
+                })
+                const url = `http://localhost:8080/api/2/deseados/${this.producto.id}`
+                let opciones
+                if (yaDeseado) {
+                    opciones = {
+                        method: 'DELETE',
+                    }
+                }
+                else {
+                    opciones = {
+                        method: 'PUT',
+                    }
+                }
+                fetch(url, opciones)
+                    .then(() => location.reload())
+                    .catch(err => console.error(err))
+            }
         },
         alCarrito() {
             const url = `http://localhost:8080/api/2/carrito/${this.producto.id}`
@@ -69,11 +83,6 @@ var datos = new Vue({
                         }
                     })
                 })
-                // .then(() => {
-                //     for (let i = 0; i < this.cliente.carrito.length; i++) {
-                //         this.total += this.cliente.carrito[i].precio
-                //     }
-                // })
                 .catch(err => {
                     console.log(err)
                 })

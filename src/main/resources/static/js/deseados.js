@@ -6,18 +6,32 @@ var datos = new Vue({
         deseados: []
     },
     created() {
-        this.cargaCategorias("http://localhost:8080/api/get/categorias/")
-        let urlCliente = "http://localhost:8080/api/get/clientes/2"
-        let urlProductos = "http://localhost:8080/api/get/productos/"
-        this.cargaClienteYProductos(urlCliente, urlProductos)
+        if (!localStorage.getItem("tp-backend-cliente")) {
+            window.location.assign("./login3.html")
+        }
+        else {
+            this.cargaCategorias("http://localhost:8080/api/get/categorias/")
+            let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+            let urlCliente = `http://localhost:8080/api/get/clientes/${datos.cliente}`
+            let urlProductos = "http://localhost:8080/api/get/productos/"
+            this.cargaClienteYProductos(urlCliente, urlProductos)
+        }
     },
     methods: {
-        buscarDeseados(){
+        miCuenta(){
+            if (localStorage.getItem("tp-backend-cliente")) {
+                window.location.assign("./modificar-cliente.html")
+            }
+            else{
+                window.location.assign("./login3.html")
+            }
+        },
+        buscarDeseados() {
             this.cliente.deseados.forEach(deseado => {
                 let encontrado = false
                 let i = 0
                 while (!encontrado && i < this.productos.length) {
-                    if(this.productos[i].id == deseado.id){
+                    if (this.productos[i].id == deseado.id) {
                         this.deseados.push(this.productos[i])
                     }
                     i++
@@ -25,7 +39,7 @@ var datos = new Vue({
             });
             console.log(this.deseados);
         },
-        cargaClienteYProductos(urlCliente, urlProductos){
+        cargaClienteYProductos(urlCliente, urlProductos) {
             fetch(urlProductos)
                 .then(res => res.json())
                 .then(data => {
@@ -35,17 +49,17 @@ var datos = new Vue({
                 .catch(err => {
                     console.log(err)
                 })
-                .then(()=>{
+                .then(() => {
                     fetch(urlCliente)
-                    .then(res => res.json())
-                    .then(data => {
-                        this.cliente = data
-                        console.log(data);
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
-                    .then(()=>this.buscarDeseados())
+                        .then(res => res.json())
+                        .then(data => {
+                            this.cliente = data
+                            console.log(data);
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
+                        .then(() => this.buscarDeseados())
                 })
         },
         verDetalles(idProducto) {

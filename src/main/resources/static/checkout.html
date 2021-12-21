@@ -57,13 +57,13 @@
         </span>
 
         <span class="_text-der">
-          <span>
+          <span v-if="localStorage.getItem('tp-backend-cliente')">
             <i class="fas fa-dollar-sign"></i>
-            <a href="#">ARS</a>
+            <a href="./historial.html">Mis Compras</a>
           </span>
           <span>
             <i class="far fa-user"></i>
-            <a href="#">Mi cuenta</a>
+            <a href="#" v-on:click="datos.miCuenta()">Mi cuenta</a>
           </span>
         </span>
       </div>
@@ -153,7 +153,7 @@
     <!-- BREADCRUMB -->
     <div class="_breadcrumb">
       <nav>
-        <a href="#">Inicio</a><span>/</span>
+        <a href="./index.html">Inicio</a><span>/</span>
         <a href="./store.html">Tienda</a><span>/</span>
         <span>Verificación</span>
       </nav>
@@ -167,13 +167,13 @@
         <div class="_direccion">
           <p class="_title">Datos de envio</p>
           <form action="#">
-            <input class="form-control" type="text" placeholder="Nombre" :value="datos.cliente.nombre">
-            <input class="form-control" type="text" placeholder="Apellido" :value="datos.cliente.apellido">
-            <input class="form-control" type="number" placeholder="Teléfono" :value="datos.cliente.telefono">
-            <input class="form-control" type="text" placeholder="Direccion" :value="datos.cliente.direccion">
-            <input class="form-control" type="text" placeholder="Localidad" :value="datos.cliente.localidad">
-            <input class="form-control" type="text" placeholder="Provincia" :value="datos.cliente.provincia">
-            <input class="form-control" type="text" placeholder="Cod. Postal" :value="datos.cliente.codigoPostal">
+            <input class="form-control" disabled type="text" placeholder="Nombre" :value="datos.cliente.nombre">
+            <input class="form-control" disabled type="text" placeholder="Apellido" :value="datos.cliente.apellido">
+            <input class="form-control" disabled type="number" placeholder="Teléfono" :value="datos.cliente.telefono">
+            <input class="form-control" disabled type="text" placeholder="Direccion" :value="datos.cliente.direccion">
+            <input class="form-control" disabled type="text" placeholder="Localidad" :value="datos.cliente.localidad">
+            <input class="form-control" disabled type="text" placeholder="Provincia" :value="datos.cliente.provincia">
+            <input class="form-control" disabled type="text" placeholder="Cod. Postal" :value="datos.cliente.codigoPostal">
           </form>
         </div>
 

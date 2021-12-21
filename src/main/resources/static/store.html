@@ -66,13 +66,13 @@
         </span>
 
         <span class="_text-der">
-          <span>
+          <span v-if="localStorage.getItem('tp-backend-cliente')">
             <i class="fas fa-dollar-sign"></i>
-            <a href="#">ARS</a>
+            <a href="./historial.html">Mis Compras</a>
           </span>
           <span>
             <i class="far fa-user"></i>
-            <a href="#">Mi cuenta</a>
+            <a href="#" v-on:click="datos.miCuenta()">Mi cuenta</a>
           </span>
         </span>
       </div>
@@ -167,7 +167,7 @@
     <!-- BREADCRUMB -->
     <div class="_breadcrumb">
       <nav>
-        <a href="#">Inicio</a><span>/</span>
+        <a href="./index.html">Inicio</a><span>/</span>
         <span>Tienda</span>
       </nav>
     </div>
