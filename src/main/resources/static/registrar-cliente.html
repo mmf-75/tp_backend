@@ -60,49 +60,53 @@
       <h1 class="_titulo">Registrarse</h1>
 
       <form action="#">
+        <div class="_bloque-10">
+          <div class="_bloque-5">
+            <div class="mb-3">
+              <label for="_nombre" class="form-label">Nombre</label>
+              <input id="_nombre" class="form-control" type="text" required placeholder="Nombre">
+            </div>
+            <div class="mb-3">
+              <label for="_apellido" class="form-label">Apellido</label>
+              <input id="_apellido" class="form-control" type="text" required placeholder="Apellido">
+            </div>
+            <div class="mb-3">
+              <label for="_fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
+              <input id="_fecha-nacimiento" class="form-control" type="text" required placeholder="Fecha de nacimiento">
+            </div>
+            <div class="mb-3">
+              <label for="_email" class="form-label">Email</label>
+              <input id="_email" class="form-control" type="email" required placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <label for="_contrasenia" class="form-label">Contraseña</label>
+              <input id="_contrasenia" class="form-control" type="password" required placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="_bloque-5">
+            <div class="mb-3">
+              <label for="_telefono" class="form-label">Teléfono</label>
+              <input id="_telefono" class="form-control" type="number" required placeholder="Teléfono">
+            </div>
+            <div class="mb-3">
+              <label for="_provincia" class="form-label">Provincia</label>
+              <input id="_provincia" class="form-control" type="text" required placeholder="Provincia">
+            </div>
+            <div class="mb-3">
+              <label for="_localidad" class="form-label">Localidad</label>
+              <input id="_localidad" class="form-control" type="text" required placeholder="Localidad">
+            </div>
+            <div class="mb-3">
+              <label for="_direccion" class="form-label">Dirección</label>
+              <input id="_direccion" class="form-control" type="text" required placeholder="Dirección">
+            </div>
+            <div class="mb-3">
+              <label for="_cod-postal" class="form-label">Código Postal</label>
+              <input id="_cod-postal" class="form-control" type="text" required placeholder="Código Postal">
+            </div>
+          </div>
+        </div>
 
-
-        <div class="mb-3">
-          <label for="_nombre" class="form-label">Nombre</label>
-          <input id="_nombre" class="form-control" type="text" required placeholder="Nombre">
-        </div>
-        <div class="mb-3">
-          <label for="_apellido" class="form-label">Apellido</label>
-          <input id="_apellido" class="form-control" type="text" required placeholder="Apellido">
-        </div>
-        <div class="mb-3">
-          <label for="_fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
-          <input id="_fecha-nacimiento" class="form-control" type="text" required placeholder="Fecha de nacimiento">
-        </div>
-        <div class="mb-3">
-          <label for="_email" class="form-label">Email</label>
-          <input id="_email" class="form-control" type="email" required placeholder="Email">
-        </div>
-        <div class="mb-3">
-          <label for="_contrasenia" class="form-label">Contraseña</label>
-          <input id="_contrasenia" class="form-control" type="text" required placeholder="Contraseña">
-        </div>
-        <div class="mb-3">
-          <label for="_telefono" class="form-label">Teléfono</label>
-          <input id="_telefono" class="form-control" type="number" required placeholder="Teléfono">
-        </div>
-        <div class="mb-3">
-          <label for="_provincia" class="form-label">Provincia</label>
-          <input id="_provincia" class="form-control" type="text" required placeholder="Provincia">
-        </div>
-        <div class="mb-3">
-          <label for="_localidad" class="form-label">Localidad</label>
-          <input id="_localidad" class="form-control" type="text" required placeholder="Localidad">
-        </div>
-        <div class="mb-3">
-          <label for="_direccion" class="form-label">Dirección</label>
-          <input id="_direccion" class="form-control" type="text" required placeholder="Dirección">
-        </div>
-        <div class="mb-3">
-          <label for="_cod-postal" class="form-label">Código Postal</label>
-          <input id="_cod-postal" class="form-control" type="text" required placeholder="Código Postal">
-        </div>
-        
         <button type="button" class="btn btn-outline-light" v-on:click="datos.registrarse()">Registrarse</button>
       </form>
       <p class="_registrar">¿Ya tenés cuenta? <a href="./login3.html">Iniciá sesión acá!</a></p>

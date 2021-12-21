@@ -33,7 +33,9 @@ var datos = new Vue({
                         yaDeseado = true
                     }
                 })
-                const url = `http://localhost:8080/api/2/deseados/${this.producto.id}`
+                let auxx = localStorage.getItem("tp-backend-cliente")
+                auxx = JSON.parse(auxx)
+                const url = `http://localhost:8080/api/${auxx.cliente}/deseados/${this.producto.id}`
                 let opciones
                 if (yaDeseado) {
                     opciones = {
@@ -51,7 +53,8 @@ var datos = new Vue({
             }
         },
         alCarrito() {
-            const url = `http://localhost:8080/api/2/carrito/${this.producto.id}`
+            let auxx = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+            const url = `http://localhost:8080/api/${auxx.cliente}/carrito/${this.producto.id}`
             const opciones = {
                 method: 'PUT',
             }
