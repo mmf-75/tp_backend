@@ -57,9 +57,9 @@
         </span>
 
         <span class="_text-der">
-          <span>
+          <span v-if="localStorage.getItem('tp-backend-cliente')">
             <i class="fas fa-dollar-sign"></i>
-            <a href="#">ARS</a>
+            <a href="./historial.html">Mis Compras</a>
           </span>
           <span>
             <i class="far fa-user"></i>
@@ -117,7 +117,7 @@
     <!-- NAVEGACION -->
     <div class="_navegacion">
       <nav>
-        <a href="./index-admin.html">Inicio</a>
+        <a href="./index.html">Inicio</a>
         <a href="#">Mejores ofertas</a>
         <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
       </nav>
