@@ -36,10 +36,10 @@ var datos = new Vue({
                     this.cliente = data
                     console.log(data);
                 })
-                .then(() => {
-                    if (this.cliente.administrador)
-                        window.location.assign("./index-admin.html")
-                })
+                // .then(() => {
+                //     if (this.cliente.administrador)
+                //         window.location.assign("./index-admin.html")
+                // })
                 .catch(err => {
                     console.log(err)
                 })
