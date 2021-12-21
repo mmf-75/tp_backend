@@ -35,7 +35,7 @@ var datos = new Vue({
                     fechaEntraga: "Entrega en proceso",
                     precioFinal: Math.round(producto.precio - (producto.precio * producto.descuento / 100)),
                     clientesModel: {
-                        id: 2
+                        id: this.cliente.id
                     },
                     productosModel: {
                         id: producto.id
@@ -59,7 +59,7 @@ var datos = new Vue({
             fetch(url, opciones)
 
                 .then(() => {
-                    fetch('http://localhost:8080/api/2/carrito/all', { method: 'DELETE' })
+                    fetch(`http://localhost:8080/api/${this.cliente.id}/carrito/all`, { method: 'DELETE' })
                         .then(() => window.location.assign("./historial.html"))
                         .catch(err => console.error(err))
                 })

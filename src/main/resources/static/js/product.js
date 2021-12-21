@@ -33,9 +33,9 @@ var datos = new Vue({
                         yaDeseado = true
                     }
                 })
-                let auxx = localStorage.getItem("tp-backend-cliente")
-                auxx = JSON.parse(auxx)
-                const url = `http://localhost:8080/api/${auxx.cliente}/deseados/${this.producto.id}`
+                // let auxx = localStorage.getItem("tp-backend-cliente")
+                // auxx = JSON.parse(auxx)
+                const url = `http://localhost:8080/api/${this.cliente.id}/deseados/${this.producto.id}`
                 let opciones
                 if (yaDeseado) {
                     opciones = {
