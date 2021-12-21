@@ -4,11 +4,21 @@ var datos = new Vue({
         cliente: {},
     },
     created() {
-        let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-        this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
+        if (localStorage.getItem("tp-backend-cliente")) {
+            let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
+            this.cargaCliente(`http://localhost:8080/api/get/clientes/${datos.cliente}`)
+        }
         this.cargaCategorias("http://localhost:8080/api/get/categorias/")
     },
     methods: {
+        miCuenta(){
+            if (localStorage.getItem("tp-backend-cliente")) {
+                window.location.assign("./modificar-cliente.html")
+            }
+            else{
+                window.location.assign("./login3.html")
+            }
+        },
         cargaCategorias(url) {
             fetch(url)
                 .then(res => res.json())
