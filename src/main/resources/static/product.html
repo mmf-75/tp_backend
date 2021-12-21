@@ -200,7 +200,7 @@
             <label for="_cantidad" class="_txt-cant">Cantidad</label>
             <input type="number" id="_cantidad" class="_input-cant" value="1" required>
           </div> -->
-          <button class="_comprar" v-on:click="datos.alCarrito()">Añadir al Carrito</button>
+          <button class="_comprar" v-if="datos.producto.stock > 0" v-on:click="datos.alCarrito()">Añadir al Carrito</button>
 
         </div>
       </div>

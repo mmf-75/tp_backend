@@ -13,11 +13,22 @@ var datos = new Vue({
         this.cargaProductos("http://localhost:8080/api/get/productos")
     },
     methods: {
-        miCuenta(){
+        buscarPorNombre() {
+            let buscador = document.querySelector('#_buscador')
+            console.dir(buscador.value)
+            let idProductoBuscado
+            this.productos.forEach(producto => {
+                if (producto.nombreProducto == buscador.value)
+                    idProductoBuscado = producto.id
+            });
+            console.log(idProductoBuscado);
+            this.verDetalles(idProductoBuscado)
+        },
+        miCuenta() {
             if (localStorage.getItem("tp-backend-cliente")) {
                 window.location.assign("./modificar-cliente.html")
             }
-            else{
+            else {
                 window.location.assign("./login3.html")
             }
         },
@@ -128,4 +139,21 @@ new Vue({
 
 new Vue({
     el: '#_vue-footer'
+})
+
+document.addEventListener('change', () => {
+    let catSelect = document.querySelector('#categoria')
+    let opciones = document.querySelectorAll('#_lista-de-productos option')
+    opciones.forEach(opcion => {
+        if (catSelect.value == 'todas') {
+            opcion.disabled = false
+        } else {
+            if (opcion.className.slice(8) == catSelect.value) {
+                opcion.disabled = false
+            }
+            else {
+                opcion.disabled = true
+            }
+        }
+    });
 })

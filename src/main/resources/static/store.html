@@ -92,9 +92,12 @@
             <option v-bind:value="categoria.nombre" v-for="categoria in datos.categorias">{{categoria.nombre}}</option>
           </select>
 
-          <input class="fs-14" type="text" placeholder="Buscar productos">
+          <input class="fs-14" type="text" id="_buscador" list="_lista-de-productos" placeholder="Buscar productos">
+          <datalist id="_lista-de-productos">
+            <option :class="'_option-' + producto.categoriaModel.nombre" v-for="producto in datos.productos" :value="producto.nombreProducto"></option>
+          </datalist>
 
-          <button class="fs-14">Buscar</button>
+          <button class="fs-14" v-on:click="datos.buscarPorNombre()">Buscar</button>
 
         </span>
         <!-- LOS BOTONCITOS DE LA DERECHA -->
