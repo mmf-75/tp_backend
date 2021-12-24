@@ -22,14 +22,19 @@ var datos = new Vue({
                 .then(() => location.reload())        
         },
         mostrarCategoria(idCategoria){
+            console.log('hola');
             let productos=document.querySelectorAll(".product")
-
-            for (let i = 0; i < productos.length; i++) {
-                if (idCategoria!=productos[i].id) {
-                    productos[i].classList.add("invisible")
-                }else{
+            let i = 0
+            let visibles = 0
+            while(i < productos.length) {
+                if (idCategoria == productos[i].id && visibles < 5) {
                     productos[i].classList.remove("invisible")
+                    visibles++
+                    console.log(visibles)
+                }else{
+                    productos[i].classList.add("invisible")
                 }
+                i++
             }
         },
         cargaCategorias(url) {

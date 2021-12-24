@@ -36,10 +36,6 @@ var datos = new Vue({
                     this.cliente = data
                     console.log(data);
                 })
-                // .then(() => {
-                //     if (this.cliente.administrador)
-                //         window.location.assign("./index-admin.html")
-                // })
                 .catch(err => {
                     console.log(err)
                 })
@@ -50,10 +46,6 @@ var datos = new Vue({
 new Vue({
     el: '#_vue-header'
 })
-
-// new Vue({
-//     el: '#_vue-main'
-// })
 
 new Vue({
     el: '#_vue-footer'

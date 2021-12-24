@@ -85,8 +85,8 @@
         <span>
           <a href="./deseados.html" class="_derrecha">
             <div class="_block-nidea">
-              <v-flex v-if="datos.cliente.deseados?.length > 0" class="_cant">
-                {{datos.cliente.deseados?.length}}
+              <v-flex v-if="datos.cliente?.deseados?.length > 0" class="_cant">
+                {{datos.cliente?.deseados?.length}}
               </v-flex>
               <i class="far fa-heart"></i>
               <span class="fs-12">Deseados</span>
@@ -94,9 +94,8 @@
           </a>
           <a href="./checkout.html" class="_derrecha">
             <div class="_block-nidea">
-              <!-- El signo de pregunta en datos.cliente.carrito?.length quiere decir "si existe", o algo así -->
-              <v-flex v-if="datos.cliente.carrito?.length > 0" class="_cant">
-                {{datos.cliente.carrito.length}}
+              <v-flex v-if="datos.cliente?.carrito?.length > 0" class="_cant">
+                {{datos.cliente?.carrito?.length}}
               </v-flex>
               <i class="fas fa-shopping-cart"></i>
               <span class="fs-12">Carrito</span>
@@ -249,9 +248,8 @@
                   <div data-nav="#slick-nav-1">
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
-                    <div id="producto">
-                      <!-- v-if="producto.id>10" -->
-                      <div v-for="(producto, index) in datos.productos" v-if="index < 10" class="product" v-bind:id="producto.categoriaModel.id">
+                    <div id="producto" style="display: flex; flex-direction: row; justify-content: center; align-items: center; flex-wrap: wrap;">
+                      <div v-for="producto in datos.productos" class="product" v-bind:id="producto.categoriaModel.id" style="width: 200px;">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">
@@ -264,7 +262,7 @@
                           <h3 class="product-name"><a href="#">{{producto.nombreProducto}}</a></h3>
                           <h4 class="product-price">
                             ${{Math.round(producto.precio-(producto.descuento*producto.precio/100))-1}} <del
-                              class="product-old-price">${{producto.precio}}</del></h4>
+                              class="product-old-price" v-if="producto.descuento > 0">${{producto.precio}}</del></h4>
                           <!-- <div class="product-rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>

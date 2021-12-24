@@ -3,12 +3,9 @@ const app = new Vue({
     data: {
         productos: [],
         categorias: [],
-        errored: false,
-        loading: true
     },
     created() {
         var url = "http://localhost:8080/api/get/productos"
-
         this.fetchData(url)
     },
     methods: {
@@ -17,38 +14,36 @@ const app = new Vue({
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
-                    console.log(data);
-                    this.loading = false;
-                    console.log(this.loading);
                     var url1 = "http://localhost:8080/api/get/categorias"
                     fetch(url1)
                         .then(response => response.json())
                         .then(data => {
                             this.categorias = data;
-                            console.log(data);
-                            this.loading = false;
-                            console.log(this.loading);
                         })
                         .catch(err => {
-                            this.errored = true
                             console.error(err);
                         })
                 })
                 .catch(err => {
-                    this.errored = true
                     console.error(err);
                 })
         },
 
         mostrarCategoria(idCategoria){
+            console.log('hola');
             let productos=document.querySelectorAll(".product")
-
-            for (let i = 0; i < productos.length; i++) {
-                if (idCategoria!=productos[i].id) {
-                    productos[i].classList.add("invisible")
-                }else{
+            let i = 0
+            let visibles = 0
+            while(i < productos.length) {
+                if (idCategoria == productos[i].id && visibles < 5) {
                     productos[i].classList.remove("invisible")
+                    visibles++
+                    console.log(visibles)
+                }else{
+                    productos[i].classList.add("invisible")
                 }
+                i++
+                // console.log(visibles);
             }
         },
 
