@@ -2,10 +2,10 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 
-import com.example.demo.models.Certificados;
 import com.example.demo.models.ClientesModel;
 import com.example.demo.services.ClientesService;
 // import com.example.demo.utils.JWTUtil;
+import com.example.demo.utils.Certificados;
 
 // import de.mkammerer.argon2.Argon2;
 // import de.mkammerer.argon2.Argon2Factory;

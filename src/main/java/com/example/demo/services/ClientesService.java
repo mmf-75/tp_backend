@@ -3,11 +3,11 @@ package com.example.demo.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.models.Certificados;
 import com.example.demo.models.ClientesModel;
 import com.example.demo.models.ProductosModel;
 import com.example.demo.repositories.ClientesRepository;
 import com.example.demo.repositories.ProductosRepository;
+import com.example.demo.utils.Certificados;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
