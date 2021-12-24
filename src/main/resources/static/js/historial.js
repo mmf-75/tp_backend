@@ -9,8 +9,8 @@ var datos = new Vue({
         }
         else{
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
-            this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+            this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+            this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
         }       
     },
     methods: {

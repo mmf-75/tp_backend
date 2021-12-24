@@ -51,7 +51,7 @@ function modificarProducto() {
       descuento: descuento,
       categoriaModel: {id:categoria}
   }
-  var url="http://tp-integrador-back-end.herokuapp.com/api/put/productos"
+  var url="https://tp-integrador-back-end.herokuapp.com/api/put/productos"
   const opciones = {
       method: 'PUT',
       body: JSON.stringify(productoModificado),

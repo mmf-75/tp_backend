@@ -11,7 +11,7 @@ async function iniciarSesion() {
         password: document.getElementById('txtPassword').value
     };
 
-    const url = "http://tp-integrador-back-end.herokuapp.com/api/login"
+    const url = "https://tp-integrador-back-end.herokuapp.com/api/login"
 
     const opciones = {
         method: 'POST',

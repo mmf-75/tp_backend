@@ -17,7 +17,7 @@ function nuevoProducto() {
         categoriaModel: {id:categoria}
     }
     console.log(productoNuevo)
-    var url="http://tp-integrador-back-end.herokuapp.com/api/post/productos"
+    var url="https://tp-integrador-back-end.herokuapp.com/api/post/productos"
     const opciones = {
         method: 'POST',
         body: JSON.stringify(productoNuevo),

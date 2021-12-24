@@ -5,8 +5,8 @@ var datos = new Vue({
     },
     created() {
         let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-        this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
     },
     methods: {
         cerrarSesion(){
@@ -41,7 +41,7 @@ var datos = new Vue({
                 carrito: this.cliente.carrito,
                 administrador: this.cliente.administrador
             }
-            var url = "http://tp-integrador-back-end.herokuapp.com/api/put/clientes"
+            var url = "https://tp-integrador-back-end.herokuapp.com/api/put/clientes"
             const opciones = {
                 method: 'PUT',
                 body: JSON.stringify(clienteModificado),
@@ -56,7 +56,7 @@ var datos = new Vue({
                 .catch(err => console.log(err))
         },
         eliminarCliente(idCliente){
-                var url = "http://tp-integrador-back-end.herokuapp.com/api/delete/clientes/" + idCliente
+                var url = "https://tp-integrador-back-end.herokuapp.com/api/delete/clientes/" + idCliente
                 const opciones = {
                     method: 'DELETE'
                 }

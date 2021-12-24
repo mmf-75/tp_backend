@@ -7,12 +7,12 @@ var datos = new Vue({
     created() {
         if (localStorage.getItem("tp-backend-cliente")) {
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+            this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
         }
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
         let id = location.search.substring(1)
         id == '' ? id = 1 : ''
-        this.cargaProducto(`http://tp-integrador-back-end.herokuapp.com/api/get/productos/${id}`)
+        this.cargaProducto(`https://tp-integrador-back-end.herokuapp.com/api/get/productos/${id}`)
     },
     methods: {
         miCuenta() {
@@ -35,7 +35,7 @@ var datos = new Vue({
                 })
                 // let auxx = localStorage.getItem("tp-backend-cliente")
                 // auxx = JSON.parse(auxx)
-                const url = `http://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/deseados/${this.producto.id}`
+                const url = `https://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/deseados/${this.producto.id}`
                 let opciones
                 if (yaDeseado) {
                     opciones = {
@@ -54,7 +54,7 @@ var datos = new Vue({
         },
         alCarrito() {
             let auxx = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            const url = `http://tp-integrador-back-end.herokuapp.com/api/${auxx.cliente}/carrito/${this.producto.id}`
+            const url = `https://tp-integrador-back-end.herokuapp.com/api/${auxx.cliente}/carrito/${this.producto.id}`
             const opciones = {
                 method: 'PUT',
             }
@@ -102,7 +102,7 @@ var datos = new Vue({
                 })
         },
         sacarDelCarrito(idProducto) {
-            const url = `http://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
+            const url = `https://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
             const opciones = {
                 method: 'DELETE'
             }

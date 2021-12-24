@@ -6,9 +6,9 @@ var datos = new Vue({
     },
     created() {
         let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-        this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/" + location.search.substring(1))
-        this.cargaProducto("http://tp-integrador-back-end.herokuapp.com/api/get/productos/")
+        this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/" + location.search.substring(1))
+        this.cargaProducto("https://tp-integrador-back-end.herokuapp.com/api/get/productos/")
     },
     methods: {
         mostrarCategoria(idCategoria){
@@ -29,7 +29,7 @@ var datos = new Vue({
                 id: this.categorias.id,
                 nombre: nombre,
             }
-            var url="http://tp-integrador-back-end.herokuapp.com/api/put/categorias"
+            var url="https://tp-integrador-back-end.herokuapp.com/api/put/categorias"
             const opciones = {
                 method: 'PUT',
                 body: JSON.stringify(categoriaModificada),

@@ -6,9 +6,9 @@ var datos = new Vue({
     },
     created() {
         let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-        this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
-        this.cargaProducto("http://tp-integrador-back-end.herokuapp.com/api/get/productos/" + location.search.substring(1))
+        this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaProducto("https://tp-integrador-back-end.herokuapp.com/api/get/productos/" + location.search.substring(1))
     },
     methods: {
         nuevoProducto() {
@@ -29,7 +29,7 @@ var datos = new Vue({
                 descuento: descuento,
                 categoriaModel: {id:categoria}
             }
-            var url="http://tp-integrador-back-end.herokuapp.com/api/post/productos"
+            var url="https://tp-integrador-back-end.herokuapp.com/api/post/productos"
             const opciones = {
                 method: 'POST',
                 body: JSON.stringify(productoNuevo),
@@ -63,7 +63,7 @@ var datos = new Vue({
                 descuento: descuento,
                 categoriaModel: { id: categoria }
             }
-            var url = "http://tp-integrador-back-end.herokuapp.com/api/put/productos"
+            var url = "https://tp-integrador-back-end.herokuapp.com/api/put/productos"
             const opciones = {
                 method: 'PUT',
                 body: JSON.stringify(productoModificado),

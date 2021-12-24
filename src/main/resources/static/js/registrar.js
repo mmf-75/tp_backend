@@ -17,7 +17,7 @@ async function registrarUsuario() {
 
     if (repetirPassword == datos.contrasenia) {
 
-        let url = 'http://tp-integrador-back-end.herokuapp.com/api/post/clientes'
+        let url = 'https://tp-integrador-back-end.herokuapp.com/api/post/clientes'
 
         let opciones = {
             method: 'POST',

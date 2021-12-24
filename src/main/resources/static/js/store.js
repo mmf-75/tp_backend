@@ -7,10 +7,10 @@ var datos = new Vue({
     created() {
         if (localStorage.getItem("tp-backend-cliente")) {
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+            this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
         }
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
-        this.cargaProductos("http://tp-integrador-back-end.herokuapp.com/api/get/productos")
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaProductos("https://tp-integrador-back-end.herokuapp.com/api/get/productos")
     },
     methods: {
         buscarPorNombre() {

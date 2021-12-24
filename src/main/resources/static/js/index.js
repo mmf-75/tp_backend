@@ -6,9 +6,9 @@ var datos = new Vue({
     created() {
         if (localStorage.getItem("tp-backend-cliente")) {
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+            this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
         }
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
     },
     methods: {
         miCuenta(){

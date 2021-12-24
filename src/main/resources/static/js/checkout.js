@@ -10,8 +10,8 @@ var datos = new Vue({
         }
         else{
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            this.cargaCliente(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
-            this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+            this.cargaCliente(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`)
+            this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
         }        
     },
     methods: {
@@ -46,7 +46,7 @@ var datos = new Vue({
 
             console.log(newPost);
 
-            const url = 'http://tp-integrador-back-end.herokuapp.com/api/post/ventas/'
+            const url = 'https://tp-integrador-back-end.herokuapp.com/api/post/ventas/'
 
             const opciones = {
                 method: 'POST',
@@ -59,7 +59,7 @@ var datos = new Vue({
             fetch(url, opciones)
 
                 .then(() => {
-                    fetch(`http://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/all`, { method: 'DELETE' })
+                    fetch(`https://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/all`, { method: 'DELETE' })
                         .then(() => window.location.assign("./historial.html"))
                         .catch(err => console.error(err))
                 })
@@ -94,7 +94,7 @@ var datos = new Vue({
                 })
         },
         sacarDelCarrito(idProducto) {
-            const url = `http://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
+            const url = `https://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
             const opciones = {
                 method: 'DELETE'
             }

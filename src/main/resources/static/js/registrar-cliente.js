@@ -27,7 +27,7 @@ var datos = new Vue({
                 administrador: false
             }
 
-            let url = "http://tp-integrador-back-end.herokuapp.com/api/post/clientes"
+            let url = "https://tp-integrador-back-end.herokuapp.com/api/post/clientes"
 
             let opciones = {
                 method: 'POST',

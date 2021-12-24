@@ -14,7 +14,7 @@ var datos = new Vue({
                 contrasenia: txtContrasenia.value
             }
             console.log(aux);
-            let url = "http://tp-integrador-back-end.herokuapp.com/api/logueo"
+            let url = "https://tp-integrador-back-end.herokuapp.com/api/logueo"
             let opciones = {
                 method: 'POST',
                 body: JSON.stringify(aux),
@@ -32,7 +32,7 @@ var datos = new Vue({
                         }
                         console.table(data)
                         localStorage.setItem("tp-backend-cliente", JSON.stringify(data))
-                        fetch(`http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${data.cliente}`)
+                        fetch(`https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${data.cliente}`)
                         .then(res => res.text())
                         .then(respuesta => {
                             let aux2 = JSON.parse(respuesta)

@@ -33,7 +33,7 @@ function modificarCategoria() {
       id: datos.id,
       nombre: nombre,
   }
-  var url="http://tp-integrador-back-end.herokuapp.com/api/put/categorias"
+  var url="https://tp-integrador-back-end.herokuapp.com/api/put/categorias"
   const opciones = {
       method: 'PUT',
       body: JSON.stringify(categoriaModificada),

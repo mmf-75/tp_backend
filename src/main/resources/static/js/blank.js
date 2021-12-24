@@ -6,9 +6,9 @@ var datos = new Vue({
         // producto: {}
     },
     created() {
-        this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
-        this.cargaCliente("http://tp-integrador-back-end.herokuapp.com/api/get/clientes/2")
-        // this.cargaProducto("http://tp-integrador-back-end.herokuapp.com/api/get/productos/1")
+        this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+        this.cargaCliente("https://tp-integrador-back-end.herokuapp.com/api/get/clientes/2")
+        // this.cargaProducto("https://tp-integrador-back-end.herokuapp.com/api/get/productos/1")
     },
     methods: {
         cargaCategorias(url) {
@@ -49,7 +49,7 @@ var datos = new Vue({
         //         })
         // },
         // sacarDelCarrito(idProducto){
-        //     const url = `http://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
+        //     const url = `https://tp-integrador-back-end.herokuapp.com/api/${this.cliente.id}/carrito/${idProducto}`
         //     const opciones = {
         //         method: 'DELETE'
         //     }

@@ -10,10 +10,10 @@ var datos = new Vue({
             window.location.assign("./login3.html")
         }
         else {
-            this.cargaCategorias("http://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
+            this.cargaCategorias("https://tp-integrador-back-end.herokuapp.com/api/get/categorias/")
             let datos = JSON.parse(localStorage.getItem("tp-backend-cliente"))
-            let urlCliente = `http://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`
-            let urlProductos = "http://tp-integrador-back-end.herokuapp.com/api/get/productos/"
+            let urlCliente = `https://tp-integrador-back-end.herokuapp.com/api/get/clientes/${datos.cliente}`
+            let urlProductos = "https://tp-integrador-back-end.herokuapp.com/api/get/productos/"
             this.cargaClienteYProductos(urlCliente, urlProductos)
         }
     },

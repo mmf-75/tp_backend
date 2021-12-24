@@ -4,7 +4,7 @@ function nuevaCategoria() {
     categoriaNueva={
         nombre: nombreCategoria
     };
-    var url="http://tp-integrador-back-end.herokuapp.com/api/post/categorias"
+    var url="https://tp-integrador-back-end.herokuapp.com/api/post/categorias"
     const opciones = {
         method: 'POST',
         body: JSON.stringify(categoriaNueva),

@@ -5,7 +5,7 @@ const app = new Vue({
         categorias: [],
     },
     created() {
-        var url = "http://tp-integrador-back-end.herokuapp.com/api/get/productos"
+        var url = "https://tp-integrador-back-end.herokuapp.com/api/get/productos"
         this.fetchData(url)
     },
     methods: {
@@ -14,7 +14,7 @@ const app = new Vue({
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
-                    var url1 = "http://tp-integrador-back-end.herokuapp.com/api/get/categorias"
+                    var url1 = "https://tp-integrador-back-end.herokuapp.com/api/get/categorias"
                     fetch(url1)
                         .then(response => response.json())
                         .then(data => {
@@ -48,7 +48,7 @@ const app = new Vue({
         },
 
         eliminarProducto(idProducto){
-            var url = "http://tp-integrador-back-end.herokuapp.com/api/delete/productos/" + idProducto
+            var url = "https://tp-integrador-back-end.herokuapp.com/api/delete/productos/" + idProducto
             const opciones = {
                 method: 'DELETE'
             }
@@ -59,7 +59,7 @@ const app = new Vue({
         },
 
         eliminarCategoria(idCategoria){
-            var url = "http://tp-integrador-back-end.herokuapp.com/api/delete/categorias/" + idCategoria
+            var url = "https://tp-integrador-back-end.herokuapp.com/api/delete/categorias/" + idCategoria
             const opciones = {
                 method: 'DELETE'
             }
