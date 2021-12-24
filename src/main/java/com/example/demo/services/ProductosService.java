@@ -41,18 +41,4 @@ public class ProductosService {
         return productosRepository.findByPrecio(precio);
     }
 
-    // public ProductosModel postProducto(ProductosModel productosModel, Byte idCategoria) {
-    //     // Busca la categoría por ID. Si la encuentra la asigna al nuevo producto y lo
-    //     // guarda en la base de datos. Si no la encuentra no hace nada.
-    //     // Notas adicionales: Se puede mejorar utilizando EntityStatus:
-    //     // https://www.baeldung.com/spring-response-entity
-    //     if (categoriaRepository.existsById(idCategoria)) {
-    //         CategoriaModel categoriaSeleccionada = categoriaRepository.findById(idCategoria).get();
-    //         productosModel.setCategoriaModel(categoriaSeleccionada);
-    //         return productosRepository.save(productosModel);
-    //     } else {
-    //         return null;
-    //     }
-    // }
-
 }
