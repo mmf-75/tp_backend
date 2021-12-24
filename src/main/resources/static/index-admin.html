@@ -30,7 +30,7 @@
 </head>
 
 <body>
-  
+
   <header id="_vue-header">
     <div class="_contacto">
       <div class="_text-zone">
@@ -56,7 +56,7 @@
           </span>
           <span>
             <i class="far fa-user"></i>
-            <a href="#" v-on:click="datos.miCuenta()">Mi Cuenta</a>
+            <a href="./modificar-cliente.html">Mi cuenta</a>
           </span>
         </span>
       </div>
@@ -109,16 +109,45 @@
     <!-- NAVEGACION -->
     <div class="_navegacion">
       <nav>
-        <a href="./store.html">Tienda</a>
+        <a href="#">Inicio</a>
         <!-- <a href="#">Mejores ofertas</a> -->
-        <a href="./store.html" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
+        <a href="#" v-for="categoria in datos.categorias">{{categoria.nombre}}</a>
       </nav>
 
     </div>
 
   </header>
 
-  <main id="app">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <main id="_vue-main">
 
 
     <!-- SECTION -->
@@ -194,8 +223,10 @@
                   <ul class="section-tab-nav tab-nav">
                     <div class="_navegacion">
                       <nav id="_js-categorias">
-                        <button v-for="categoria in categorias" class="btn btn-outline-secondary"
-                          v-on:click="mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>                        
+                        <button v-for="categoria in datos.categorias" class="btn btn-outline-secondary"
+                          v-on:click="datos.mostrarCategoria(categoria.id)">{{categoria.nombre}}</button>
+                        <a href="./categorias.html" class="btn btn-outline-dark" >Mod. Categorías</a>
+                        
                       </nav>
 
                     </div>
@@ -209,7 +240,7 @@
           <!-- /section title -->
 
           <!-- Products tab & slick -->
-          <div class="col-md-12" id="app">
+          <div class="col-md-12">
             <div class="row">
               <div>
                 <!-- tab -->
@@ -218,7 +249,7 @@
                     <!-- PREFERIBLE V-FOR DE LOS PRODUCTOS EN VEZ DE REPETIR -->
                     <!-- product -->
                     <div id="producto" style="display: flex; flex-direction: row; justify-content: center; align-items: center; flex-wrap: wrap;">
-                      <div v-for="producto in productos" class="product" v-bind:id="producto.categoriaModel.id" style="width: 200px;">
+                      <div v-for="producto in datos.productos" class="product" v-bind:id="producto.categoriaModel.id" style="width: 200px;">
                         <div class="product-img">
                           <img :src="producto.fotoProducto" :alt="producto.nombreProducto">
                           <div class="product-label">
@@ -229,7 +260,6 @@
                         <div class="product-body">
                           <p class="product-category">{{producto.categoriaModel.nombre}}</p>
                           <h3 class="product-name"><a href="#">{{producto.nombreProducto}}</a></h3>
-
                           <h4 class="product-price">
                             ${{Math.round(producto.precio-(producto.descuento*producto.precio/100))-1}} <del
                               class="product-old-price" v-if="producto.descuento > 0">${{producto.precio}}</del></h4>
@@ -249,11 +279,20 @@
                                 rápida</span></button>
 
                           </div> -->
+                          <div>
+                            <a v-bind:href="'./modificar-producto.html?' + producto.id"
+                              class="btn btn-outline-dark">Modificar</a>
+                            <button v-on:click="datos.eliminarProducto(producto.id)" class="btn btn-outline-dark">Eliminar</button>
+                          </div>
                         </div>
                         <div class="add-to-cart">
-                          <a :href="'./product.html?'+producto.id" class="add-to-cart-btn"> Detalles</a>
+                          <a :href="'./product.html?'+producto.id" class="add-to-cart-btn">Detalles</a>
                         </div>
                       </div>
+                    </div>
+
+                    <div>
+                      <a href="./agregar-producto.html" class="btn btn-outline-dark btn-añadir-producto">Añadir Producto</a>
                     </div>
 
                     <!-- /product -->
@@ -320,6 +359,40 @@
 
 
   </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <footer id="_vue-footer">
     <!-- Me olvidé de comentarlo xDD -->
@@ -394,8 +467,7 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="./js/index.js"></script>
-  <script src="./js/vue-productos.js"></script>
+  <script src="./js/index-admin.js"></script>
 </body>
 
 </html>
